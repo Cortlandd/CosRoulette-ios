@@ -1,16 +1,16 @@
 //
 //  EndPointType.swift
-//  Fedha
+//  Makeup Roulette
 //
-//  Created by Cortland Walker on 2/26/19.
+//  Created by Cortland Walker on 3/8/19.
 //  Copyright © 2019 Fedha. All rights reserved.
 //
 
 import Foundation
 
 /**
-   This protocol will contain all information to configure an EndPoint.
-   Comprising of components such as headers, query parameters, and body parameters.
+ This protocol will contain all information to configure an EndPoint.
+ Comprising of components such as headers, query parameters, and body parameters.
  */
 protocol EndPointType {
     var baseURL: URL { get }

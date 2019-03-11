@@ -1,8 +1,8 @@
 //
 //  NetworkRouter.swift
-//  Fedha
+//  Makeup Roulette
 //
-//  Created by Cortland Walker on 2/26/19.
+//  Created by Cortland Walker on 3/8/19.
 //  Copyright © 2019 Fedha. All rights reserved.
 //
 
@@ -24,5 +24,5 @@ protocol NetworkRouter: class {
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion)
     
     func cancel()
-
+    
 }

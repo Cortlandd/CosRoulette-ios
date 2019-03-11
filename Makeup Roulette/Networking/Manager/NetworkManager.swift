@@ -1,8 +1,8 @@
 //
 //  NetworkManager.swift
-//  Fedha
+//  Makeup Roulette
 //
-//  Created by Cortland Walker on 2/26/19.
+//  Created by Cortland Walker on 3/8/19.
 //  Copyright © 2019 Fedha. All rights reserved.
 //
 
@@ -25,69 +25,31 @@ enum Result<String> {
 
 struct NetworkManager {
     static let environment : NetworkEnvironment = .development
-    let userRouter = Router<UserApi>()
+    let youtubeAPIRouter = Router<YouTubeApi>()
     
-    /*
-     Pass in the email, password, and a completion which returns
-     an optional User model object or optional error message
-     */
-    func login(email: String, password: String, completion: @escaping (_ user: User?, _ error: String?) ->()) {
+    func searchVideoItems(params: Parameters, completion: @escaping (_ items: [Items]?, _ error: String?) -> ()) {
         
-        userRouter.request(.login(email: email, password: password)) { data, response, error in
-            // URLSession returns an error if there is no network connectivity
+        youtubeAPIRouter.request(.search(params: params)) { data, response, error in
+            
             if error != nil {
-                completion(nil, "Please check your network connection.")
+                completion(nil, "Please check your network connection")
             }
-            // Assign response to HTTPURLResponse so we can access the statusCode property
+            
             if let response = response as? HTTPURLResponse {
-                
-                //  Handling the result of the request in a switch statement
                 let result = self.handleNetworkResponse(response)
+                print("Result: \(result)")
                 switch result {
-                
                 case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
                     
-                    // If the result is has no data exit the login method
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    // If the result has data, decode the data to the model, passto completion
                     do {
-                        let loginApiResponse = try JSONDecoder().decode(UserLoginResponse.self, from: responseData)
-                        completion(loginApiResponse.user, nil)
-                    } catch {
-                        completion(nil, "Unable to decode")
-                    }
-                // 8
-                case .failure(let networkFailureError):
-                    completion(nil, networkFailureError)
-                }
-            }
-        }
-    }
-    
-    func register(name: String, email: String, password: String, password_confirmation: String, completion: @escaping (_ user: User?, _ error: String?) -> ()) {
-        
-        userRouter.request(.register(email: email, name: name, password: password, password_confirmation: password_confirmation)) { data, response, error in
-            
-            if error != nil {
-                completion(nil, "Please check your network connection.")
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                
-                let result = self.handleNetworkResponse(response)
-                
-                switch result {
-                case .success:
-                    guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData.rawValue)
-                        return
-                    }
-                    do {
-                        let registerApiResponse = try JSONDecoder().decode(UserRegisterResponse.self, from: responseData)
-                        completion(registerApiResponse.user, nil)
+                        
+                        let searchApiResponse = try JSONDecoder().decode(YouTubeApiSearchResponse.self, from: responseData)
+                        
+                        completion(searchApiResponse.items, nil)
                     } catch {
                         completion(nil, "Unable to decode")
                     }

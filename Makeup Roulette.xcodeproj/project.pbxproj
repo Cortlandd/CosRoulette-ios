@@ -130,16 +130,15 @@
 				7FBF07BC2236C38C00E14C34 /* NetworkLogger.swift */,
 			);
 			name = Service;
-			path = "New Group";
-			sourceTree = "<group>";
+			path = "/Volumes/Untitled/Development/ios/Makeup Roulette/Makeup Roulette/Networking/Service";
+			sourceTree = "<absolute>";
 		};
 		7F95D3912233279A00CAE838 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				7F95D392223327B600CAE838 /* NetworkManager.swift */,
 			);
-			name = Manager;
-			path = "New Group1";
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		7F95D394223327DE00CAE838 /* EndPoint */ = {

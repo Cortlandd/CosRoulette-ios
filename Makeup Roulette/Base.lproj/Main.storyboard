@@ -24,8 +24,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyM-ha-Qd8">
-                                <rect key="frame" x="173" y="314" width="68" height="30"/>
+                                <rect key="frame" x="140" y="310" width="136" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="Get Video"/>
                                 <connections>
                                     <action selector="_getVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEN-6c-NQg"/>

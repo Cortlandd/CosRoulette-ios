@@ -1,0 +1,16 @@
+PODS:
+  - YoutubePlayerView (1.0.2)
+
+DEPENDENCIES:
+  - YoutubePlayerView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - YoutubePlayerView
+
+SPEC CHECKSUMS:
+  YoutubePlayerView: 980ab5f696e50006c27f858db501590a7d9d36a3
+
+PODFILE CHECKSUM: e7a072a8927ab428df1ccd939ebec60340579e98
+
+COCOAPODS: 1.5.3

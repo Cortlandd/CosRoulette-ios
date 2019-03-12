@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11B6B147E3F610BC5ED16D46 /* Pods_Makeup_Roulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492883F7F315CCD018640015 /* Pods_Makeup_Roulette.framework */; };
 		7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F704222D6F7F00D19C03 /* AppDelegate.swift */; };
 		7F73F707222D6F7F00D19C03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F706222D6F7F00D19C03 /* ViewController.swift */; };
 		7F73F70A222D6F7F00D19C03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F73F708222D6F7F00D19C03 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		492883F7F315CCD018640015 /* Pods_Makeup_Roulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makeup_Roulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F73F701222D6F7E00D19C03 /* Makeup Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Makeup Roulette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F73F704222D6F7F00D19C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F73F706222D6F7F00D19C03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		7F95D395223327F300CAE838 /* YouTubeEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeEndPoint.swift; sourceTree = "<group>"; };
 		7F95D39822332E4800CAE838 /* YouTube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTube.swift; sourceTree = "<group>"; };
 		7FBF07BC2236C38C00E14C34 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		A819A5BB8714E15E986A5060 /* Pods-Makeup Roulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makeup Roulette.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makeup Roulette/Pods-Makeup Roulette.debug.xcconfig"; sourceTree = "<group>"; };
+		EB6B5FABB477994475243EAA /* Pods-Makeup Roulette.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makeup Roulette.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makeup Roulette/Pods-Makeup Roulette.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B6B147E3F610BC5ED16D46 /* Pods_Makeup_Roulette.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,7 @@
 		02766CEC274E64949E47CC6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				492883F7F315CCD018640015 /* Pods_Makeup_Roulette.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -72,6 +78,7 @@
 				7F73F703222D6F7E00D19C03 /* Makeup Roulette */,
 				7F73F702222D6F7E00D19C03 /* Products */,
 				02766CEC274E64949E47CC6B /* Frameworks */,
+				EF342FA31845D6C61BD0FAC5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +164,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EF342FA31845D6C61BD0FAC5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A819A5BB8714E15E986A5060 /* Pods-Makeup Roulette.debug.xcconfig */,
+				EB6B5FABB477994475243EAA /* Pods-Makeup Roulette.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F73F713222D6F8000D19C03 /* Build configuration list for PBXNativeTarget "Makeup Roulette" */;
 			buildPhases = (
+				4B6E738DE8D1F9E1FA175953 /* [CP] Check Pods Manifest.lock */,
 				7F73F6FD222D6F7E00D19C03 /* Sources */,
 				7F73F6FE222D6F7E00D19C03 /* Frameworks */,
 				7F73F6FF222D6F7E00D19C03 /* Resources */,
+				C8B17316AB284DED9EAB9666 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,6 +240,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B6E738DE8D1F9E1FA175953 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Makeup Roulette-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8B17316AB284DED9EAB9666 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Makeup Roulette/Pods-Makeup Roulette-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YoutubePlayerView/YoutubePlayerView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YoutubePlayerView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Makeup Roulette/Pods-Makeup Roulette-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7F73F6FD222D6F7E00D19C03 /* Sources */ = {
@@ -385,6 +442,7 @@
 		};
 		7F73F714222D6F8000D19C03 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A819A5BB8714E15E986A5060 /* Pods-Makeup Roulette.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -405,6 +463,7 @@
 		};
 		7F73F715222D6F8000D19C03 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB6B5FABB477994475243EAA /* Pods-Makeup Roulette.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

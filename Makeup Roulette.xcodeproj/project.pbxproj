@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11B6B147E3F610BC5ED16D46 /* Pods_Makeup_Roulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492883F7F315CCD018640015 /* Pods_Makeup_Roulette.framework */; };
+		7F023738224B22070054449E /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F023737224B22070054449E /* FilterCell.swift */; };
 		7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F704222D6F7F00D19C03 /* AppDelegate.swift */; };
 		7F73F707222D6F7F00D19C03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F706222D6F7F00D19C03 /* ViewController.swift */; };
 		7F73F70A222D6F7F00D19C03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F73F708222D6F7F00D19C03 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		492883F7F315CCD018640015 /* Pods_Makeup_Roulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makeup_Roulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F023737224B22070054449E /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		7F73F701222D6F7E00D19C03 /* Makeup Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Makeup Roulette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F73F704222D6F7F00D19C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F73F706222D6F7F00D19C03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				7F73F70B222D6F8000D19C03 /* Assets.xcassets */,
 				7F73F70D222D6F8000D19C03 /* LaunchScreen.storyboard */,
 				7F73F710222D6F8000D19C03 /* Info.plist */,
+				7F023737224B22070054449E /* FilterCell.swift */,
 			);
 			path = "Makeup Roulette";
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				7F73F720222D78E800D19C03 /* JSONParameterEncoder.swift in Sources */,
 				7F95D39922332E4800CAE838 /* YouTube.swift in Sources */,
 				7F73F71E222D78CD00D19C03 /* URLParameterEncoder.swift in Sources */,
+				7F023738224B22070054449E /* FilterCell.swift in Sources */,
 				7F95D38F2233276600CAE838 /* Router.swift in Sources */,
 				7F95D3892233271900CAE838 /* HTTPMethod.swift in Sources */,
 				7F95D393223327B600CAE838 /* NetworkManager.swift in Sources */,

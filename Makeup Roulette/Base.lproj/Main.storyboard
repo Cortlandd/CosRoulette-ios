@@ -18,18 +18,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ou-PD-HeH" customClass="YoutubePlayerView" customModule="YoutubePlayerView">
-                                <rect key="frame" x="0.0" y="20" width="375" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ou-PD-HeH" customClass="YoutubePlayerView" customModule="YoutubePlayerView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FGq-tF-xcl">
-                                <rect key="frame" x="0.0" y="282" width="375" height="228"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. Black Women, Fenty, Alissa Ashley" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5aH-hp-KRF">
+                                <rect key="frame" x="16" y="256" width="272" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="228" id="AMy-RI-seV"/>
-                                    <constraint firstAttribute="width" constant="375" id="brX-DN-gKS"/>
+                                    <constraint firstAttribute="height" constant="36" id="9U0-7u-7qr"/>
                                 </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyM-ha-Qd8">
+                                <rect key="frame" x="119" y="588" width="137" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="_getVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEN-6c-NQg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Me-bkx">
+                                <rect key="frame" x="296" y="256" width="63" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddFilterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nph-a8-LRh"/>
+                                </connections>
+                            </button>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FGq-tF-xcl">
+                                <rect key="frame" x="0.0" y="319" width="375" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" id="kYa-gn-VUz" customClass="FilterCell" customModule="Makeup_Roulette" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -39,7 +62,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozf-nI-o2p">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="8" y="0.0" width="651" height="43.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43.5" id="AJ2-bH-Ddc"/>
                                                     </constraints>
@@ -66,61 +89,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PGt-8E-mZe"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyM-ha-Qd8">
-                                <rect key="frame" x="119" y="552" width="136" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="rlM-0e-dxc"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="tVh-KS-pIb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Get Video"/>
-                                <connections>
-                                    <action selector="_getVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEN-6c-NQg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Me-bkx">
-                                <rect key="frame" x="315" y="222" width="44" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="2IT-O5-FpW"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="CA0-Pr-HmO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="AddFilterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nph-a8-LRh"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. Black Women, Fenty, Alissa Ashley" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5aH-hp-KRF">
-                                <rect key="frame" x="26" y="223" width="272" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="9U0-7u-7qr"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="xBn-Me-bkx" secondAttribute="bottom" constant="24" id="3AV-nX-sfX"/>
-                            <constraint firstItem="FGq-tF-xcl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7h5-Zz-Xua"/>
-                            <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="xBn-Me-bkx" secondAttribute="bottom" constant="24" id="BGE-mX-pab"/>
-                            <constraint firstItem="FGq-tF-xcl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="DkF-Yr-EaA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cyM-ha-Qd8" secondAttribute="bottom" constant="64" id="GPW-mz-3eR"/>
-                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="top" secondItem="FGq-tF-xcl" secondAttribute="bottom" constant="42" id="HNG-EM-XJU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xBn-Me-bkx" secondAttribute="trailing" constant="16" id="Hpb-aV-hxS"/>
-                            <constraint firstItem="5aH-hp-KRF" firstAttribute="firstBaseline" secondItem="xBn-Me-bkx" secondAttribute="baseline" id="QgB-Xu-tzS"/>
-                            <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="5aH-hp-KRF" secondAttribute="bottom" constant="23" id="Uq0-yd-HvJ"/>
-                            <constraint firstItem="xBn-Me-bkx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5aH-hp-KRF" secondAttribute="trailing" constant="7" id="W12-2A-7iQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cyM-ha-Qd8" secondAttribute="trailing" constant="120" id="Whb-QJ-dtg"/>
-                            <constraint firstItem="5aH-hp-KRF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="dK6-lb-s7O"/>
-                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="top" secondItem="FGq-tF-xcl" secondAttribute="bottom" constant="42" id="eqX-Qn-8B5"/>
-                            <constraint firstItem="5aH-hp-KRF" firstAttribute="baseline" secondItem="xBn-Me-bkx" secondAttribute="firstBaseline" id="hNW-4I-8EI"/>
-                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="lfg-2x-NbR"/>
-                            <constraint firstItem="5aH-hp-KRF" firstAttribute="baseline" secondItem="xBn-Me-bkx" secondAttribute="baseline" id="zWb-zV-tl1"/>
+                            <constraint firstItem="5aH-hp-KRF" firstAttribute="top" secondItem="xBn-Me-bkx" secondAttribute="top" id="15N-sP-cT6"/>
+                            <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="5aH-hp-KRF" secondAttribute="bottom" constant="27" id="2bC-g1-ieZ"/>
+                            <constraint firstItem="1Ou-PD-HeH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7p4-L6-kms"/>
+                            <constraint firstItem="5aH-hp-KRF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="84v-ke-Qqa"/>
+                            <constraint firstItem="FGq-tF-xcl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8vB-qp-7rl"/>
+                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="top" secondItem="FGq-tF-xcl" secondAttribute="bottom" constant="69" id="Bss-vg-Kt8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cyM-ha-Qd8" secondAttribute="bottom" constant="28" id="HVa-lr-L2u"/>
+                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IvD-9I-MJH"/>
+                            <constraint firstItem="FGq-tF-xcl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LHd-ES-w6c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xBn-Me-bkx" secondAttribute="trailing" constant="16" id="LYZ-tf-y4P"/>
+                            <constraint firstItem="1Ou-PD-HeH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P1g-mT-Hrg"/>
+                            <constraint firstItem="FGq-tF-xcl" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="Uut-nx-YGH"/>
+                            <constraint firstItem="FGq-tF-xcl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="f31-74-kQ4"/>
+                            <constraint firstItem="1Ou-PD-HeH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="jyX-iI-ZTC"/>
+                            <constraint firstItem="5aH-hp-KRF" firstAttribute="top" secondItem="1Ou-PD-HeH" secondAttribute="bottom" constant="36" id="rgm-W4-Wl8"/>
+                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="w6t-IU-DCR"/>
+                            <constraint firstItem="xBn-Me-bkx" firstAttribute="leading" secondItem="5aH-hp-KRF" secondAttribute="trailing" constant="8" symbolic="YES" id="yWO-K2-pQ7"/>
+                            <constraint firstItem="1Ou-PD-HeH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zth-Qn-xH7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -11,95 +11,68 @@ import YoutubePlayerView
 
 class ViewController: UIViewController {
     
-    var youtubeArray = [String]()
-    
-    var API_KEY: String = "AIzaSyB3sP8V6Ufg0BUaf7YntWUv1aygEAP2lfQ"
-    
-    var filters = [String]()
-    
-    var networkManager: NetworkManager!
-    
-    var allFiltersText = [String]()
-    
     @IBOutlet var _playerView: YoutubePlayerView!
     @IBOutlet var _tableView: UITableView!
     @IBOutlet weak var _addFilterText: UITextField!
     
-    @IBAction func AddFilterButton(_ sender: Any) {
-        insertFilter()
-    }
+    // Array of string videoId's
+    var youtubeArray = [String]()
     
-    /*
-     * Function used to append a filter to table view.
-     */
-    func insertFilter() {
-
-        if _addFilterText.text == "" {
-            print("Add Video Text Field is empty")
-        } else {
-            filters.append(_addFilterText.text!)
-            
-            let indexPath = IndexPath(row: filters.count - 1, section: 0)
-            
-            _tableView.beginUpdates()
-            _tableView.insertRows(at: [indexPath], with: .automatic)
-            _tableView.endUpdates()
-            
-            _addFilterText.text = ""
-            view.endEditing(true)
-            
-            _tableView.isHidden = false
+    // YouTube API Key
+    var API_KEY: String = "AIzaSyB3sP8V6Ufg0BUaf7YntWUv1aygEAP2lfQ"
+    
+    // The list of filters inside the Filters Table
+    var filters = [String]()
+    
+    // String representation of the filters created in the tableview. Separated with a space.
+    var allFiltersStringText: String = ""
+    
+    // List representing all filters added to the tableview.
+    var allFiltersText = [String]() {
+        
+        // If a new row is inserted or deleted delete the youtube array to start a new search
+        willSet {
+            print("Removed everything from youtube array")
+            youtubeArray.removeAll()
         }
         
     }
     
-    /*
-     * For each visible tablecell, put the text into an array and return it
-     */
-    func getAllTableViewRowsText() -> [String] {
-        var r = [String]()
-        
-        for cell in _tableView.visibleCells as! [FilterCell] {
-            r.append(cell._filterText.text!)
-        }
-        
-        return r
-    }
+    // A variable to handle the NetworkManager
+    var networkManager: NetworkManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Dismiss Keyboard on touch outside
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        
         // Do any additional setup after loading the view, typically from a nib.
         networkManager = NetworkManager()
         
         // Remove repeating rows at bottom of filter
         _tableView.tableFooterView = UIView()
+    
+    }
+    
+    @IBAction func AddFilterButton(_ sender: Any) {
+        insertFilter()
     }
     
     @IBAction func _getVideo(_ sender: Any) {
         
-        // Assign the search query based on the filters
-        allFiltersText = getAllTableViewRowsText()
-        let allFiltersStringText = allFiltersText.joined(separator: " ")
-        
+        allFiltersStringText = allFiltersText.joined(separator: " ")
+
         var search_params = Parameters()
         
-        if allFiltersStringText.isEmpty {
-            search_params = [
-                "q": "makeup tutorials",
-                "part": "id,snippet",
-                "key": API_KEY,
-                "safeSearch": "none",
-                "type": "video"
-            ]
-        } else {
-            search_params = [
-                "q": "makeup tutorials \(allFiltersStringText)",
-                "part": "id,snippet",
-                "key": API_KEY,
-                "safeSearch": "none",
-                "type": "video"
-            ]
-        }
+        search_params = [
+            "q": "makeup tutorials \(allFiltersStringText)",
+            "part": "id,snippet",
+            "key": API_KEY,
+            "safeSearch": "none",
+            "type": "video"
+        ]
         
         let playerVars: [String: Any] = [
             "controls": 1,
@@ -144,6 +117,52 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    /*
+     * Function used to drop down Keyboard when touching outside in _addFilterText
+     */
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        _addFilterText.resignFirstResponder()
+    }
+    
+    /*
+     * Function used to append a filter to table view.
+     */
+    func insertFilter() {
+        
+        if _addFilterText.text == "" {
+            print("Add Video Text Field is empty")
+        } else {
+            filters.append(_addFilterText.text!)
+            
+            let indexPath = IndexPath(row: filters.count - 1, section: 0)
+            
+            _tableView.beginUpdates()
+            _tableView.insertRows(at: [indexPath], with: .automatic)
+            _tableView.endUpdates()
+            
+            _addFilterText.text = ""
+            view.endEditing(true)
+            
+            // After inserting a new row, get the newly visible filters
+            allFiltersText = getAllTableViewRowsText()
+            
+            _tableView.isHidden = false
+        }
+    }
+    
+    /*
+     * For each visible tablecell, put the text into an array and return it
+     */
+    func getAllTableViewRowsText() -> [String] {
+        var r = [String]()
+        
+        for cell in _tableView.visibleCells as! [FilterCell] {
+            r.append(cell._filterText.text!)
+        }
+        return r
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -176,7 +195,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
-        
+        // After deleting a row, get the newly visible filters
+        allFiltersText = getAllTableViewRowsText()
     }
     
 }

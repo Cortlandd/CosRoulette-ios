@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Data Source-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Makeup_Roulette" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,14 +31,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyM-ha-Qd8">
-                                <rect key="frame" x="119" y="588" width="137" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <action selector="_getVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEN-6c-NQg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Me-bkx">
                                 <rect key="frame" x="296" y="256" width="63" height="36"/>
                                 <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,7 +43,7 @@
                                 </connections>
                             </button>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FGq-tF-xcl">
-                                <rect key="frame" x="0.0" y="319" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="319" width="375" height="167"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilterCell" id="kYa-gn-VUz" customClass="FilterCell" customModule="Makeup_Roulette" customModuleProvider="target">
@@ -62,7 +54,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozf-nI-o2p">
-                                                    <rect key="frame" x="8" y="0.0" width="651" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43.5" id="AJ2-bH-Ddc"/>
                                                     </constraints>
@@ -89,6 +81,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PGt-8E-mZe"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDu-6S-zmh" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="539" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="uAd-zh-fmF"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xEW-j7-xLC"/>
+                                </connections>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackCircle" translatesAutoresizingMaskIntoConstraints="NO" id="eCy-Ym-YhM">
+                                <rect key="frame" x="162" y="539" width="50" height="150"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyM-ha-Qd8">
+                                <rect key="frame" x="139" y="494" width="97" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="_getVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEN-6c-NQg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -97,24 +108,33 @@
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7p4-L6-kms"/>
                             <constraint firstItem="5aH-hp-KRF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="84v-ke-Qqa"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8vB-qp-7rl"/>
-                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="top" secondItem="FGq-tF-xcl" secondAttribute="bottom" constant="69" id="Bss-vg-Kt8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cyM-ha-Qd8" secondAttribute="bottom" constant="28" id="HVa-lr-L2u"/>
-                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IvD-9I-MJH"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eCy-Ym-YhM" secondAttribute="bottom" constant="-22" id="BHH-9W-cJA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cyM-ha-Qd8" secondAttribute="trailing" constant="139" id="HMC-Sq-Vfu"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LHd-ES-w6c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xBn-Me-bkx" secondAttribute="trailing" constant="16" id="LYZ-tf-y4P"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P1g-mT-Hrg"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="Uut-nx-YGH"/>
-                            <constraint firstItem="FGq-tF-xcl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="f31-74-kQ4"/>
+                            <constraint firstItem="cDu-6S-zmh" firstAttribute="top" secondItem="cyM-ha-Qd8" secondAttribute="bottom" constant="8" id="ZgZ-pj-dz4"/>
+                            <constraint firstItem="cDu-6S-zmh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="539" id="cxO-g3-aVU"/>
+                            <constraint firstItem="cDu-6S-zmh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dM9-VE-ydx"/>
+                            <constraint firstAttribute="trailing" secondItem="eCy-Ym-YhM" secondAttribute="trailing" constant="163" id="em3-YH-Egr"/>
+                            <constraint firstItem="FGq-tF-xcl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" constant="-33.099999999999994" id="f31-74-kQ4"/>
+                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="top" secondItem="FGq-tF-xcl" secondAttribute="bottom" constant="8" id="hQb-Qv-zfy"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="jyX-iI-ZTC"/>
+                            <constraint firstItem="eCy-Ym-YhM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="162" id="kBM-w7-Qhw"/>
+                            <constraint firstItem="cDu-6S-zmh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="mQQ-to-CNb"/>
+                            <constraint firstItem="cDu-6S-zmh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pG5-5u-aJo"/>
                             <constraint firstItem="5aH-hp-KRF" firstAttribute="top" secondItem="1Ou-PD-HeH" secondAttribute="bottom" constant="36" id="rgm-W4-Wl8"/>
-                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="w6t-IU-DCR"/>
+                            <constraint firstItem="cyM-ha-Qd8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="veg-l0-hlr"/>
                             <constraint firstItem="xBn-Me-bkx" firstAttribute="leading" secondItem="5aH-hp-KRF" secondAttribute="trailing" constant="8" symbolic="YES" id="yWO-K2-pQ7"/>
+                            <constraint firstItem="eCy-Ym-YhM" firstAttribute="top" secondItem="cDu-6S-zmh" secondAttribute="top" id="zSc-WO-YMu"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zth-Qn-xH7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="_addFilterText" destination="5aH-hp-KRF" id="whn-Gb-DQd"/>
+                        <outlet property="_carouselView" destination="cDu-6S-zmh" id="E54-HF-mXx"/>
                         <outlet property="_playerView" destination="1Ou-PD-HeH" id="Csu-xM-ZCS"/>
                         <outlet property="_tableView" destination="FGq-tF-xcl" id="ORC-Iu-L9X"/>
                     </connections>
@@ -124,4 +144,7 @@
             <point key="canvasLocation" x="130.40000000000001" y="131.78410794602701"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blackCircle" width="1890" height="1890"/>
+    </resources>
 </document>

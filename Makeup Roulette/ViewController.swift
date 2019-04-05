@@ -9,11 +9,48 @@
 import UIKit
 import YoutubePlayerView
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     
+    var items: [Int] = []
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        for i in 0...6 {
+            items.append(i)
+        }
+    }
+    
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        return items.count
+    }
+    
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        var imageView: UIImageView
+        
+        
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        imageView.image = UIImage(named: "blackCircle.png")
+        imageView.contentMode = .scaleAspectFit
+    
+        return imageView
+        
+    }
+    
+    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        if option == .spacing {
+            print(value)
+            return value * 1.1
+        }
+        return value
+    }
+    
+    
+    @IBOutlet weak var _carouselView: iCarousel!
     @IBOutlet var _playerView: YoutubePlayerView!
     @IBOutlet var _tableView: UITableView!
     @IBOutlet weak var _addFilterText: UITextField!
+    
+    
     
     // Array of string videoId's
     var youtubeArray = [String]()
@@ -53,8 +90,17 @@ class ViewController: UIViewController {
         
         // Remove repeating rows at bottom of filter
         _tableView.tableFooterView = UIView()
+        
+        //let targetRadius: CGFloat = (_carouselView.layer.cornerRadius == 0.0) ? 100.0 : 0.0
+        
+        _carouselView.backgroundColor = UIColor.red
+        //_carouselView.layer.cornerRadius = targetRadius
+        _carouselView.clipsToBounds = true
+        _carouselView.type = .wheel
     
     }
+    
+    
     
     @IBAction func AddFilterButton(_ sender: Any) {
         insertFilter()

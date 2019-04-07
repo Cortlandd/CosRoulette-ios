@@ -154,7 +154,7 @@
 				7FBF07BC2236C38C00E14C34 /* NetworkLogger.swift */,
 			);
 			name = Service;
-			path = "/Volumes/Untitled/Development/ios/Makeup-Roulette/Makeup Roulette/Networking/Service";
+			path = "/Volumes/Untitled/Development/ios/MakeupRoulette-ios/Makeup Roulette/Networking/Service";
 			sourceTree = "<absolute>";
 		};
 		7F95D3912233279A00CAE838 /* Manager */ = {

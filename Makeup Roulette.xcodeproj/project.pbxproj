@@ -10,7 +10,6 @@
 		11B6B147E3F610BC5ED16D46 /* Pods_Makeup_Roulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492883F7F315CCD018640015 /* Pods_Makeup_Roulette.framework */; };
 		7F023738224B22070054449E /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F023737224B22070054449E /* FilterCell.swift */; };
 		7F2BF78A2256E43C00C909E2 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BF7892256E43C00C909E2 /* iCarousel.m */; };
-		7F2BF78E2256EAA100C909E2 /* blackCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F2BF78D2256EAA100C909E2 /* blackCircle.png */; };
 		7F2BF7902256F9DE00C909E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2BF78F2256F9DE00C909E2 /* QuartzCore.framework */; };
 		7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F704222D6F7F00D19C03 /* AppDelegate.swift */; };
 		7F73F707222D6F7F00D19C03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F706222D6F7F00D19C03 /* ViewController.swift */; };
@@ -37,7 +36,6 @@
 		7F2BF7872256E43B00C909E2 /* Makeup Roulette-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Makeup Roulette-Bridging-Header.h"; sourceTree = "<group>"; };
 		7F2BF7882256E43B00C909E2 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = ../iCarousel/iCarousel/iCarousel.h; sourceTree = "<group>"; };
 		7F2BF7892256E43C00C909E2 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = ../iCarousel/iCarousel/iCarousel.m; sourceTree = "<group>"; };
-		7F2BF78D2256EAA100C909E2 /* blackCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackCircle.png; path = ../../../../../../Users/user1/Downloads/blackCircle.png; sourceTree = "<group>"; };
 		7F2BF78F2256F9DE00C909E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F73F701222D6F7E00D19C03 /* Makeup Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Makeup Roulette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F73F704222D6F7F00D19C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				7F73F716222D77DA00D19C03 /* Networking */,
 				7F73F704222D6F7F00D19C03 /* AppDelegate.swift */,
 				7F73F706222D6F7F00D19C03 /* ViewController.swift */,
-				7F2BF78D2256EAA100C909E2 /* blackCircle.png */,
 				7F73F708222D6F7F00D19C03 /* Main.storyboard */,
 				7F73F70B222D6F8000D19C03 /* Assets.xcassets */,
 				7F73F70D222D6F8000D19C03 /* LaunchScreen.storyboard */,
@@ -252,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F73F70F222D6F8000D19C03 /* LaunchScreen.storyboard in Resources */,
-				7F2BF78E2256EAA100C909E2 /* blackCircle.png in Resources */,
 				7F73F70C222D6F8000D19C03 /* Assets.xcassets in Resources */,
 				7F73F70A222D6F7F00D19C03 /* Main.storyboard in Resources */,
 			);

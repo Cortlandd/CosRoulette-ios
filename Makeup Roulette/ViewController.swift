@@ -15,42 +15,16 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        for i in 0...6 {
+        for i in 1...6 {
             items.append(i)
         }
     }
-    
-    func numberOfItems(in carousel: iCarousel) -> Int {
-        return items.count
-    }
-    
-    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        var imageView: UIImageView
-        
-        
-        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        imageView.image = UIImage(named: "blackCircle.png")
-        imageView.contentMode = .scaleAspectFit
-    
-        return imageView
-        
-    }
-    
-    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
-        if option == .spacing {
-            print(value)
-            return value * 1.1
-        }
-        return value
-    }
-    
     
     @IBOutlet weak var _carouselView: iCarousel!
     @IBOutlet var _playerView: YoutubePlayerView!
     @IBOutlet var _tableView: UITableView!
     @IBOutlet weak var _addFilterText: UITextField!
-    
-    
+    @IBOutlet weak var _cylinderImage: UIImageView!
     
     // Array of string videoId's
     var youtubeArray = [String]()
@@ -66,13 +40,11 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     
     // List representing all filters added to the tableview.
     var allFiltersText = [String]() {
-        
         // If a new row is inserted or deleted delete the youtube array to start a new search
         willSet {
             print("Removed everything from youtube array")
             youtubeArray.removeAll()
         }
-        
     }
     
     // A variable to handle the NetworkManager
@@ -91,25 +63,89 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         // Remove repeating rows at bottom of filter
         _tableView.tableFooterView = UIView()
         
-        //let targetRadius: CGFloat = (_carouselView.layer.cornerRadius == 0.0) ? 100.0 : 0.0
-        
-        _carouselView.backgroundColor = UIColor.red
-        //_carouselView.layer.cornerRadius = targetRadius
-        _carouselView.clipsToBounds = true
+        // Set carousel styling, etc.
+        //_carouselView.backgroundColor = UIColor.red
+        //_carouselView.clipsToBounds = true
         _carouselView.type = .wheel
     
     }
     
-    
-    
+    /*
+     * Add button to add filters
+     */
     @IBAction func AddFilterButton(_ sender: Any) {
         insertFilter()
     }
     
-    @IBAction func _getVideo(_ sender: Any) {
+    /*
+     * Function used to drop down Keyboard when touching outside in _addFilterText
+     */
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        _addFilterText.resignFirstResponder()
+    }
+    
+    /*
+     * Function used to append a filter to table view.
+     */
+    func insertFilter() {
+        
+        if _addFilterText.text == "" {
+            print("Add Video Text Field is empty")
+        } else {
+            filters.append(_addFilterText.text!)
+            
+            let indexPath = IndexPath(row: filters.count - 1, section: 0)
+            
+            _tableView.beginUpdates()
+            _tableView.insertRows(at: [indexPath], with: .automatic)
+            _tableView.endUpdates()
+            
+            _addFilterText.text = ""
+            view.endEditing(true)
+            
+            // After inserting a new row, get the newly visible filters
+            allFiltersText = getAllTableViewRowsText()
+            
+            _tableView.isHidden = false
+        }
+    }
+    
+    /*
+     * For each visible tablecell, put the text into an array and return it
+     */
+    func getAllTableViewRowsText() -> [String] {
+        var r = [String]()
+        
+        for cell in _tableView.visibleCells as! [FilterCell] {
+            r.append(cell._filterText.text!)
+        }
+        return r
+    }
+    
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        return items.count
+    }
+    
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        
+        var imageView: UIImageView
+        
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        //imageView.image = UIImage(named: "blackCircle.png")
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+        
+    }
+    
+    func carouselWillBeginDecelerating(_ carousel: iCarousel) {
+        print("Started spinning")
+    }
+    
+    func carouselDidEndDecelerating(_ carousel: iCarousel) {
         
         allFiltersStringText = allFiltersText.joined(separator: " ")
-
+        
         var search_params = Parameters()
         
         search_params = [
@@ -164,49 +200,18 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         }
     }
     
-    /*
-     * Function used to drop down Keyboard when touching outside in _addFilterText
-     */
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        _addFilterText.resignFirstResponder()
+    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
+        if option == .spacing {
+            return value * 1.0
+        }
+        return value
     }
     
-    /*
-     * Function used to append a filter to table view.
-     */
-    func insertFilter() {
+    func carouselDidScroll(_ carousel: iCarousel) {
+        let scroll: CGFloat = carousel.scrollOffset
+        let rotPercentage = scroll / CGFloat(carousel.numberOfVisibleItems)
+        _cylinderImage.transform = CGAffineTransform(rotationAngle: 2 * .pi * -rotPercentage)
         
-        if _addFilterText.text == "" {
-            print("Add Video Text Field is empty")
-        } else {
-            filters.append(_addFilterText.text!)
-            
-            let indexPath = IndexPath(row: filters.count - 1, section: 0)
-            
-            _tableView.beginUpdates()
-            _tableView.insertRows(at: [indexPath], with: .automatic)
-            _tableView.endUpdates()
-            
-            _addFilterText.text = ""
-            view.endEditing(true)
-            
-            // After inserting a new row, get the newly visible filters
-            allFiltersText = getAllTableViewRowsText()
-            
-            _tableView.isHidden = false
-        }
-    }
-    
-    /*
-     * For each visible tablecell, put the text into an array and return it
-     */
-    func getAllTableViewRowsText() -> [String] {
-        var r = [String]()
-        
-        for cell in _tableView.visibleCells as! [FilterCell] {
-            r.append(cell._filterText.text!)
-        }
-        return r
     }
     
 }

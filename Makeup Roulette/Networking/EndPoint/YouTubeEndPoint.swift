@@ -16,6 +16,7 @@ enum NetworkEnvironment {
 
 public enum YouTubeApi {
     case search(params: [String: Any])
+    case fetchRelatedVideos(params: [String: Any])
 }
 
 extension YouTubeApi : EndPointType {
@@ -37,6 +38,9 @@ extension YouTubeApi : EndPointType {
         switch self {
         case .search:
             return "/search"
+            
+        case .fetchRelatedVideos:
+            return "/search"
         }
     }
     
@@ -44,6 +48,10 @@ extension YouTubeApi : EndPointType {
         switch self {
         case .search:
             return .get
+            
+        case .fetchRelatedVideos:
+            return .get
+            
         default:
             return .get
         }
@@ -52,11 +60,10 @@ extension YouTubeApi : EndPointType {
     var task: HTTPTask {
         switch self {
         case .search(let params):
+            return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: params)
             
-            return .requestParameters(bodyParameters: nil,
-                                      bodyEncoding: .urlEncoding,
-                                      urlParameters: params
-            )
+        case .fetchRelatedVideos(let params):
+            return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: params)
             
         default:
             return .request

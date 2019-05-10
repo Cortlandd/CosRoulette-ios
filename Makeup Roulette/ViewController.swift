@@ -20,11 +20,13 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         }
     }
     
-    @IBOutlet weak var _carouselView: iCarousel!
-    @IBOutlet var _playerView: YoutubePlayerView!
-    @IBOutlet var _tableView: UITableView!
-    @IBOutlet weak var _addFilterText: UITextField!
-    @IBOutlet weak var _cylinderImage: UIImageView!
+    @IBOutlet weak var _carouselView:     iCarousel!
+    @IBOutlet var      _playerView:       YoutubePlayerView!
+    @IBOutlet var      _tableView:        UITableView!
+    @IBOutlet weak var _addFilterText:    UITextField!
+    @IBOutlet weak var _cylinderImage:    UIImageView!
+    @IBOutlet weak var _noFiltersText: UILabel!
+    @IBOutlet weak var _videoPlaceholderText: UITextView!
     
     // Array of string videoId's
     var youtubeArray = [String]()
@@ -42,7 +44,7 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     var allFiltersText = [String]() {
         // If a new row is inserted or deleted delete the youtube array to start a new search
         willSet {
-            print("Removed everything from youtube array")
+            print("Removed everything from youtube array because filters changed.")
             youtubeArray.removeAll()
         }
     }
@@ -56,6 +58,9 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         // Dismiss Keyboard on touch outside
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
+        
+        // Placeholder text over player
+        _playerView.bringSubviewToFront(_videoPlaceholderText)
         
         // Do any additional setup after loading the view, typically from a nib.
         networkManager = NetworkManager()
@@ -111,6 +116,35 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     }
     
     /*
+     * Function for finding related videos
+     */
+    func fetchRelatedVideos(videoId: String) {
+        
+        var related_params = Parameters()
+        
+        related_params = [
+            "key": API_KEY,
+            "part": "id",
+            "type": "video",
+            "maxResults": 20,
+            "relatedToVideoId": videoId
+        ]
+        
+        networkManager.searchRelatedVideos(params: related_params) { items, error in
+            
+            if let error = error {
+                print(error)
+            }
+            
+            if let items = items {
+                for item in items {
+                    self.youtubeArray.append(item.id.videoId)
+                }
+            }
+        }
+    }
+    
+    /*
      * For each visible tablecell, put the text into an array and return it
      */
     func getAllTableViewRowsText() -> [String] {
@@ -146,6 +180,8 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         
         allFiltersStringText = allFiltersText.joined(separator: " ")
         
+        var randomVideoId: String = ""
+        
         var search_params = Parameters()
         
         search_params = [
@@ -167,29 +203,33 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         if self.youtubeArray.isEmpty {
             
             networkManager.searchVideoItems(params: search_params) { items, error in
+                
+                var arr = [String]()
+                
                 if let error = error {
                     print(error)
                 }
                 
                 if let items = items {
                     for item in items {
-                        self.youtubeArray.append(item.id.videoId)
+                        arr.append(item.id.videoId)
+                        randomVideoId = arr.randomElement()!
+                        self._playerView.loadWithVideoId(randomVideoId)
                     }
-                    print(self.youtubeArray)
-                    self._playerView.loadWithVideoId(self.youtubeArray.randomElement()!, with: playerVars)
+                    self.fetchRelatedVideos(videoId: randomVideoId)
                 }
             }
             
         } else {
             
-            // Get random element
-            let randomEl = self.youtubeArray.randomElement()
+            // Get random videoId from youtubeArray
+            let randomVideo = self.youtubeArray.randomElement()
             
             // Play video of random array
-            self._playerView.loadWithVideoId(randomEl!, with: playerVars)
+            self._playerView.loadWithVideoId(randomVideo!, with: playerVars)
             
             // Get random element position
-            let index = self.youtubeArray.firstIndex(of: randomEl!)
+            let index = self.youtubeArray.firstIndex(of: randomVideo!)
             
             // Remove random element from list
             self.youtubeArray.remove(at: index!)
@@ -198,6 +238,8 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
             print(self.youtubeArray.description)
             
         }
+        
+        _videoPlaceholderText.isHidden = true
     }
     
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
@@ -219,6 +261,9 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if filters.count > 0 {
+            _noFiltersText.isHidden = true
+        }
         return filters.count
     }
     

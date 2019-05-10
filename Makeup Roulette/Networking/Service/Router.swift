@@ -12,10 +12,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
 
     // This task is essentially what will do all the work as far as requests
     private var task: URLSessionTask?
+    private let session = URLSession(configuration: .default)
     
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
-        
-        let session = URLSession.shared
         
         do {
             let request = try self.buildRequest(from: route)

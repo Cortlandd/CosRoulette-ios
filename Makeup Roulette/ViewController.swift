@@ -25,8 +25,16 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     @IBOutlet var      _tableView:        UITableView!
     @IBOutlet weak var _addFilterText:    UITextField!
     @IBOutlet weak var _cylinderImage:    UIImageView!
-    @IBOutlet weak var _noFiltersText: UILabel!
+    @IBOutlet weak var _noFiltersText:    UILabel!
     @IBOutlet weak var _videoPlaceholderText: UITextView!
+    @IBAction func _bookmarkButton(_ sender: Any) {
+        _playerView.fetchVideoUrl { video in
+            if let index = (video!.range(of: "=")?.upperBound) {
+                let videoId = String(video!.suffix(from: index))
+                print("Video: " + videoId)
+            }
+        }
+    }
     
     // Array of string videoId's
     var youtubeArray = [String]()

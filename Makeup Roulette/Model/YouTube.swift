@@ -30,17 +30,20 @@ extension YouTubeApiSearchResponse: Decodable {
 
 struct Items {
     let id: Id
+    let snippet: Snippet
 }
 extension Items: Decodable {
     
     enum ItemsCodingKeys: String, CodingKey {
         case id
+        case snippet
     }
     
     init(from decoder: Decoder) throws {
         let itemsContainer = try decoder.container(keyedBy: ItemsCodingKeys.self)
         
         id = try itemsContainer.decode(Id.self, forKey: .id)
+        snippet = try itemsContainer.decode(Snippet.self, forKey: .snippet)
     }
 }
 
@@ -58,6 +61,58 @@ extension Id: Decodable {
         
         videoId = try idContainer.decode(String.self, forKey: .videoId)
     }
-    
 }
 
+struct Snippet {
+    var title: String
+    var thumbnails: Thumbnails
+    var channelTitle: String
+}
+extension Snippet: Decodable {
+    
+    enum SnippetCodingKeys: String, CodingKey {
+        case title
+        case thumbnails
+        case channelTitle
+    }
+    
+    init(from decoder: Decoder) throws {
+        let snippetContainer = try decoder.container(keyedBy: SnippetCodingKeys.self)
+        
+        title = try snippetContainer.decode(String.self, forKey: .title)
+        thumbnails = try snippetContainer.decode(Thumbnails.self, forKey: .thumbnails)
+        channelTitle = try snippetContainer.decode(String.self, forKey: .channelTitle)
+    }
+}
+
+struct Thumbnails {
+    var medium: Medium
+}
+extension Thumbnails: Decodable {
+    
+    enum ThumbnailsCodingKeys: String, CodingKey {
+        case medium
+    }
+    
+    init(decoder: Decoder) throws {
+        let thumbnailsContainer = try decoder.container(keyedBy: ThumbnailsCodingKeys.self)
+        
+        medium = try thumbnailsContainer.decode(Medium.self, forKey: .medium)
+    }
+}
+
+struct Medium {
+    var url: String
+}
+extension Medium: Decodable {
+    
+    enum MediumCodingKeys: String, CodingKey {
+        case url
+    }
+    
+    init(from decoder: Decoder) throws {
+        let mediumContainer = try decoder.container(keyedBy: MediumCodingKeys.self)
+        
+        url = try mediumContainer.decode(String.self, forKey: .url)
+    }
+}

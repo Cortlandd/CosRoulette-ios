@@ -19,6 +19,8 @@
 		7F73F71C222D78A300D19C03 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F71B222D78A300D19C03 /* ParameterEncoding.swift */; };
 		7F73F71E222D78CD00D19C03 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F71D222D78CD00D19C03 /* URLParameterEncoder.swift */; };
 		7F73F720222D78E800D19C03 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F71F222D78E800D19C03 /* JSONParameterEncoder.swift */; };
+		7F7C2FBC2290DA0600C93FED /* BookmarkDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C2FBB2290DA0600C93FED /* BookmarkDBHelper.swift */; };
+		7F7C2FBE2290FC5500C93FED /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C2FBD2290FC5500C93FED /* Bookmark.swift */; };
 		7F95D387223326F600CAE838 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D386223326F600CAE838 /* EndPointType.swift */; };
 		7F95D3892233271900CAE838 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D3882233271900CAE838 /* HTTPMethod.swift */; };
 		7F95D38B2233273500CAE838 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D38A2233273500CAE838 /* HTTPTask.swift */; };
@@ -47,6 +49,8 @@
 		7F73F71B222D78A300D19C03 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		7F73F71D222D78CD00D19C03 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		7F73F71F222D78E800D19C03 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		7F7C2FBB2290DA0600C93FED /* BookmarkDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDBHelper.swift; sourceTree = "<group>"; };
+		7F7C2FBD2290FC5500C93FED /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		7F95D386223326F600CAE838 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		7F95D3882233271900CAE838 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		7F95D38A2233273500CAE838 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		7F73F703222D6F7E00D19C03 /* Makeup Roulette */ = {
 			isa = PBXGroup;
 			children = (
+				7F7C2FBB2290DA0600C93FED /* BookmarkDBHelper.swift */,
 				7F95D3972233281800CAE838 /* Model */,
 				7F73F716222D77DA00D19C03 /* Networking */,
 				7F73F704222D6F7F00D19C03 /* AppDelegate.swift */,
@@ -173,6 +178,7 @@
 		7F95D3972233281800CAE838 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F7C2FBD2290FC5500C93FED /* Bookmark.swift */,
 				7F95D39822332E4800CAE838 /* YouTube.swift */,
 			);
 			path = Model;
@@ -308,6 +314,7 @@
 				7F95D38F2233276600CAE838 /* Router.swift in Sources */,
 				7F95D3892233271900CAE838 /* HTTPMethod.swift in Sources */,
 				7F95D393223327B600CAE838 /* NetworkManager.swift in Sources */,
+				7F7C2FBC2290DA0600C93FED /* BookmarkDBHelper.swift in Sources */,
 				7F95D387223326F600CAE838 /* EndPointType.swift in Sources */,
 				7F95D38B2233273500CAE838 /* HTTPTask.swift in Sources */,
 				7F73F71C222D78A300D19C03 /* ParameterEncoding.swift in Sources */,
@@ -316,6 +323,7 @@
 				7F2BF78A2256E43C00C909E2 /* iCarousel.m in Sources */,
 				7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */,
 				7F95D38D2233274E00CAE838 /* NetworkRouter.swift in Sources */,
+				7F7C2FBE2290FC5500C93FED /* Bookmark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

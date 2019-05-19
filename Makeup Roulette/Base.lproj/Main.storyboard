@@ -137,9 +137,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="xEW-j7-xLC"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSp-v6-O6p">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSp-v6-O6p">
                                 <rect key="frame" x="328" y="360" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Bookmark"/>
                                 <connections>
                                     <action selector="_bookmarkButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rch-Il-eXb"/>
@@ -161,7 +160,9 @@
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="Uut-nx-YGH"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="atz-E5-ZxZ"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" constant="-88.800000000000011" id="f31-74-kQ4"/>
+                            <constraint firstItem="PSp-v6-O6p" firstAttribute="trailing" secondItem="xBn-Me-bkx" secondAttribute="trailing" id="fl0-Xf-ydR"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="jyX-iI-ZTC"/>
+                            <constraint firstItem="xBn-Me-bkx" firstAttribute="top" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="8" symbolic="YES" id="m69-hV-VRL"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="qga-Kt-dYj"/>
                             <constraint firstItem="5aH-hp-KRF" firstAttribute="top" secondItem="1Ou-PD-HeH" secondAttribute="bottom" constant="42" id="rgm-W4-Wl8"/>
                             <constraint firstItem="xBn-Me-bkx" firstAttribute="leading" secondItem="5aH-hp-KRF" secondAttribute="trailing" constant="8" symbolic="YES" id="yWO-K2-pQ7"/>
@@ -182,6 +183,7 @@
                         <outlet property="_cylinderImage" destination="hmk-dI-ouW" id="9X7-Nu-Fv2"/>
                         <outlet property="_noFiltersText" destination="4y0-Os-FHB" id="1rY-zs-zzw"/>
                         <outlet property="_playerView" destination="1Ou-PD-HeH" id="Csu-xM-ZCS"/>
+                        <outlet property="_refBookmarkButton" destination="PSp-v6-O6p" id="zAT-bN-YxK"/>
                         <outlet property="_tableView" destination="FGq-tF-xcl" id="ORC-Iu-L9X"/>
                         <outlet property="_videoPlaceholderText" destination="y5f-DB-CqC" id="22V-AT-rod"/>
                     </connections>

@@ -8,6 +8,7 @@
 
 import UIKit
 import YoutubePlayerView
+import SQLite3
 
 class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     
@@ -27,17 +28,42 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     @IBOutlet weak var _cylinderImage:    UIImageView!
     @IBOutlet weak var _noFiltersText:    UILabel!
     @IBOutlet weak var _videoPlaceholderText: UITextView!
+    @IBOutlet weak var _refBookmarkButton: UIButton!
+    
+    
     @IBAction func _bookmarkButton(_ sender: Any) {
+        
+        let dbConn = self.dbHelper.openConnection()
+        
+        var videoId = ""
+        var title = ""
+        var thumbnail = ""
+        var channelTitle = ""
+        
         _playerView.fetchVideoUrl { video in
-            if let index = (video!.range(of: "=")?.upperBound) {
-                let videoId = String(video!.suffix(from: index))
-                print("Video: " + videoId)
+            if video != nil{
+                let index = (video!.range(of: "=")?.upperBound)
+                videoId = String(video!.suffix(from: index!))
+                let newdict = self.searchMap.filter { ($0["videoId"] as! String) == videoId }
+                for i in newdict {
+                    videoId = i["videoId"] as! String
+                    thumbnail = i["thumbnails"] as! String
+                    title = i["title"] as! String
+                    channelTitle = i["channelTitle"] as! String
+                }
+                self.dbHelper.addBookmark(connection: dbConn, videoId: videoId, title: title, thumbnail: thumbnail, channelTitle: channelTitle)
+                self.dbHelper.closeConnection(db: dbConn)
             }
         }
+    
+        
     }
     
     // Array of string videoId's
     var youtubeArray = [String]()
+    
+    // A Dictionary of youtube search results
+    var searchMap = [Dictionary<String, Any>]()
     
     // YouTube API Key
     var API_KEY: String = "AIzaSyB3sP8V6Ufg0BUaf7YntWUv1aygEAP2lfQ"
@@ -53,9 +79,11 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         // If a new row is inserted or deleted delete the youtube array to start a new search
         willSet {
             print("Removed everything from youtube array because filters changed.")
-            youtubeArray.removeAll()
+            self.youtubeArray.removeAll()
         }
     }
+    
+    var dbHelper: BookmarkDBHelper!
     
     // A variable to handle the NetworkManager
     var networkManager: NetworkManager!
@@ -67,11 +95,21 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
         
+        _playerView.delegate = self
+        
         // Placeholder text over player
         _playerView.bringSubviewToFront(_videoPlaceholderText)
         
         // Do any additional setup after loading the view, typically from a nib.
         networkManager = NetworkManager()
+        
+        // Initialize Bookmarks Database Helper
+        dbHelper = BookmarkDBHelper()
+        let conn = dbHelper.openConnection()
+        let b = dbHelper.queryBookmarksList(db: conn)
+        b.forEach { bookmark in
+            print(bookmark)
+        }
         
         // Remove repeating rows at bottom of filter
         _tableView.tableFooterView = UIView()
@@ -186,11 +224,17 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     
     func carouselDidEndDecelerating(_ carousel: iCarousel) {
         
+        searchVideo()
+    }
+    
+    func searchVideo() {
+        
         allFiltersStringText = allFiltersText.joined(separator: " ")
         
-        var randomVideoId: String = ""
+        var randomVideo: String = ""
         
         var search_params = Parameters()
+        var newMap = Parameters()
         
         search_params = [
             "q": "makeup tutorials \(allFiltersStringText)",
@@ -212,20 +256,45 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
             
             networkManager.searchVideoItems(params: search_params) { items, error in
                 
-                var arr = [String]()
-                
                 if let error = error {
                     print(error)
                 }
                 
                 if let items = items {
                     for item in items {
-                        arr.append(item.id.videoId)
-                        randomVideoId = arr.randomElement()!
-                        self._playerView.loadWithVideoId(randomVideoId)
+                        newMap = [
+                            "videoId": item.id.videoId,
+                            "title": item.snippet.title,
+                            "thumbnails": item.snippet.thumbnails.medium.url,
+                            "channelTitle": item.snippet.channelTitle
+                        ]
+                        
+                        self.searchMap.append(newMap)
+                        
                     }
-                    self.fetchRelatedVideos(videoId: randomVideoId)
+                    
+                    // Append VideoIds from searchMap to youtubeArray
+                    for all in self.searchMap {
+                        for i in all {
+                            if i.key == "videoId" {
+                                self.youtubeArray.append(i.value as! String)
+                            }
+                        }
+                    }
+                    
                 }
+                
+                // Get random videoId
+                randomVideo = self.youtubeArray.randomElement()!
+                // Play @ random videoId
+                self._playerView.loadWithVideoId(randomVideo, with: playerVars)
+                // Get random element position
+                let index = self.youtubeArray.firstIndex(of: randomVideo)
+                // Remove random element from list
+                self.youtubeArray.remove(at: index!)
+                // Print remaining videos
+                print(self.youtubeArray.description)
+                
             }
             
         } else {
@@ -301,6 +370,34 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         // After deleting a row, get the newly visible filters
         allFiltersText = getAllTableViewRowsText()
+    }
+    
+}
+
+extension ViewController: YoutubePlayerViewDelegate {
+    
+    func playerViewDidBecomeReady(_ playerView: YoutubePlayerView) {
+        _refBookmarkButton.isHidden = false
+    }
+
+    func playerView(_ playerView: YoutubePlayerView, didChangedToState state: YoutubePlayerState) {
+        switch state {
+        case .unknown:
+            print("Unknown")
+            _refBookmarkButton.isHidden = true
+            searchVideo()
+        case .unstarted:
+            print("Unstarted")
+            _refBookmarkButton.isHidden = true
+            searchVideo()
+        case .ended:
+            print("Ended")
+            searchVideo()
+        case .buffering:
+            print("Buffering")
+        default:
+            print("Video")
+        }
     }
     
 }

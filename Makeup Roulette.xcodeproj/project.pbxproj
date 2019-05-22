@@ -33,6 +33,7 @@
 		7F95D39922332E4800CAE838 /* YouTube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D39822332E4800CAE838 /* YouTube.swift */; };
 		7FBF07BD2236C38C00E14C34 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF07BC2236C38C00E14C34 /* NetworkLogger.swift */; };
 		7FE0080E2295DFF100907D71 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE0080D2295DFF100907D71 /* iCarousel.m */; };
+		7FE0080F2295E28300907D71 /* Makeup Roulette-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BF7872256E43B00C909E2 /* Makeup Roulette-Bridging-Header.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,7 +100,6 @@
 				7F73F702222D6F7E00D19C03 /* Products */,
 				02766CEC274E64949E47CC6B /* Frameworks */,
 				EF342FA31845D6C61BD0FAC5 /* Pods */,
-				7F2BF7872256E43B00C909E2 /* Makeup Roulette-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +114,7 @@
 		7F73F703222D6F7E00D19C03 /* Makeup Roulette */ = {
 			isa = PBXGroup;
 			children = (
+				7F2BF7872256E43B00C909E2 /* Makeup Roulette-Bridging-Header.h */,
 				7FE0080C2295DFF100907D71 /* iCarousel.h */,
 				7FE0080D2295DFF100907D71 /* iCarousel.m */,
 				7F7C2FBB2290DA0600C93FED /* BookmarkDBHelper.swift */,
@@ -315,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE0080F2295E28300907D71 /* Makeup Roulette-Bridging-Header.h in Sources */,
 				7FBF07BD2236C38C00E14C34 /* NetworkLogger.swift in Sources */,
 				7F73F720222D78E800D19C03 /* JSONParameterEncoder.swift in Sources */,
 				7F95D39922332E4800CAE838 /* YouTube.swift in Sources */,
@@ -418,6 +420,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -472,6 +475,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -494,7 +498,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "makeup.roulette.com.Makeup-Roulette";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Makeup Roulette-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_NAME)/Makeup Roulette-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -518,7 +522,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "makeup.roulette.com.Makeup-Roulette";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Makeup Roulette-Bridging-Header.h";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_NAME)/Makeup Roulette-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

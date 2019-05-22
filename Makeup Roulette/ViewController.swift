@@ -30,10 +30,7 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     @IBOutlet weak var _videoPlaceholderText: UITextView!
     @IBOutlet weak var _refBookmarkButton: UIButton!
     
-    
     @IBAction func _bookmarkButton(_ sender: Any) {
-        
-        let dbConn = self.dbHelper.openConnection()
         
         var videoId = ""
         var title = ""
@@ -41,22 +38,36 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         var channelTitle = ""
         
         _playerView.fetchVideoUrl { video in
+            
+            let dbConn = self.dbHelper.openConnection()
+            
             if video != nil{
                 let index = (video!.range(of: "=")?.upperBound)
                 videoId = String(video!.suffix(from: index!))
-                let newdict = self.searchMap.filter { ($0["videoId"] as! String) == videoId }
-                for i in newdict {
-                    videoId = i["videoId"] as! String
-                    thumbnail = i["thumbnails"] as! String
-                    title = i["title"] as! String
-                    channelTitle = i["channelTitle"] as! String
-                }
-                self.dbHelper.addBookmark(connection: dbConn, videoId: videoId, title: title, thumbnail: thumbnail, channelTitle: channelTitle)
+            }
+            
+            let newdict = self.searchMap.filter { ($0["videoId"] as! String) == videoId }
+            for i in newdict {
+                videoId = i["videoId"] as! String
+                thumbnail = i["thumbnails"] as! String
+                title = i["title"] as! String
+                channelTitle = i["channelTitle"] as! String
+            }
+            
+            if self._refBookmarkButton.isSelected == false {
+                self.dbHelper.addBookmark(connection: dbConn, videoId: videoId as NSString, title: title as NSString, thumbnail: thumbnail as NSString, channelTitle: channelTitle as NSString)
                 self.dbHelper.closeConnection(db: dbConn)
+                self._refBookmarkButton.isSelected = true
+                return
+            }
+            
+            if self._refBookmarkButton.isSelected == true {
+                self.dbHelper.removeBookmark(connection: dbConn, videoId: videoId)
+                self.dbHelper.closeConnection(db: dbConn)
+                self._refBookmarkButton.isSelected = false
+                return
             }
         }
-    
-        
     }
     
     // Array of string videoId's
@@ -83,6 +94,10 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         }
     }
     
+    // A variable to get access to bookmarkStore
+    var bookmarkStore: BookmarkStore!
+    
+    // Reference to SQLite Database Manager
     var dbHelper: BookmarkDBHelper!
     
     // A variable to handle the NetworkManager
@@ -103,22 +118,37 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         // Do any additional setup after loading the view, typically from a nib.
         networkManager = NetworkManager()
         
+        // Initialize BookmarkStore
+        bookmarkStore = BookmarkStore()
+        
         // Initialize Bookmarks Database Helper
         dbHelper = BookmarkDBHelper()
-        let conn = dbHelper.openConnection()
-        let b = dbHelper.queryBookmarksList(db: conn)
-        b.forEach { bookmark in
-            print(bookmark)
-        }
         
         // Remove repeating rows at bottom of filter
         _tableView.tableFooterView = UIView()
+        
+        // Button Settings
+        _refBookmarkButton.setImage(#imageLiteral(resourceName: "whiteBookmark"), for: .normal)
+        _refBookmarkButton.setImage(#imageLiteral(resourceName: "blackBookmark"), for: .selected)
+        
+        let bookmarkSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
+        bookmarkSwipe.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(bookmarkSwipe)
         
         // Set carousel styling, etc.
         //_carouselView.backgroundColor = UIColor.red
         //_carouselView.clipsToBounds = true
         _carouselView.type = .wheel
     
+    }
+    
+    @objc func swipeAction(swipe: UISwipeGestureRecognizer) {
+        switch swipe.direction.rawValue {
+        case 2:
+            performSegue(withIdentifier: "showBookmarks", sender: self)
+        default:
+            break
+        }
     }
     
     /*
@@ -190,6 +220,34 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         }
     }
     
+    func bookmarkValidation() {
+        
+        let dbConn = dbHelper.openConnection()
+        var bookmarks = [Bookmark]()
+        dbHelper.queryBookmarksList(db: dbConn).forEach { bookmark in
+            bookmarks.append(bookmark)
+        }
+        dbHelper.closeConnection(db: dbConn)
+        
+        _playerView.fetchVideoUrl { video in
+            let index = (video!.range(of: "=")?.upperBound)
+            let currentVideo = String(video!.suffix(from: index!))
+            
+            //let newdict = self.searchMap.filter { ($0["videoId"] as! String) == videoId }
+            
+            if bookmarks.contains(where: { $0.videoId == currentVideo }) {
+                self._refBookmarkButton.isSelected = true
+                print("Is Bookmarked")
+                return
+            } else {
+                self._refBookmarkButton.isSelected = false
+                print("Is NOT Bookmarked")
+                return
+
+            }
+        }
+    }
+    
     /*
      * For each visible tablecell, put the text into an array and return it
      */
@@ -228,6 +286,8 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     }
     
     func searchVideo() {
+        
+        self._refBookmarkButton.isHidden = true
         
         allFiltersStringText = allFiltersText.joined(separator: " ")
         
@@ -377,7 +437,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController: YoutubePlayerViewDelegate {
     
     func playerViewDidBecomeReady(_ playerView: YoutubePlayerView) {
+
         _refBookmarkButton.isHidden = false
+        bookmarkValidation()
     }
 
     func playerView(_ playerView: YoutubePlayerView, didChangedToState state: YoutubePlayerState) {
@@ -396,6 +458,7 @@ extension ViewController: YoutubePlayerViewDelegate {
         case .buffering:
             print("Buffering")
         default:
+            _refBookmarkButton.isHidden = false
             print("Video")
         }
     }

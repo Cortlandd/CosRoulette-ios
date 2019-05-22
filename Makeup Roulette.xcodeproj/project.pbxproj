@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		11B6B147E3F610BC5ED16D46 /* Pods_Makeup_Roulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492883F7F315CCD018640015 /* Pods_Makeup_Roulette.framework */; };
 		7F023738224B22070054449E /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F023737224B22070054449E /* FilterCell.swift */; };
+		7F1671A2229302C3001EFB66 /* BookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A1229302C3001EFB66 /* BookmarkStore.swift */; };
+		7F1671A422932F18001EFB66 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A322932F18001EFB66 /* BookmarkCell.swift */; };
+		7F1671A622932F66001EFB66 /* BookmarksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A522932F66001EFB66 /* BookmarksTableViewController.swift */; };
 		7F2BF78A2256E43C00C909E2 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BF7892256E43C00C909E2 /* iCarousel.m */; };
 		7F2BF7902256F9DE00C909E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2BF78F2256F9DE00C909E2 /* QuartzCore.framework */; };
 		7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F704222D6F7F00D19C03 /* AppDelegate.swift */; };
@@ -35,6 +38,9 @@
 /* Begin PBXFileReference section */
 		492883F7F315CCD018640015 /* Pods_Makeup_Roulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makeup_Roulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F023737224B22070054449E /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		7F1671A1229302C3001EFB66 /* BookmarkStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkStore.swift; sourceTree = "<group>"; };
+		7F1671A322932F18001EFB66 /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
+		7F1671A522932F66001EFB66 /* BookmarksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTableViewController.swift; sourceTree = "<group>"; };
 		7F2BF7872256E43B00C909E2 /* Makeup Roulette-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Makeup Roulette-Bridging-Header.h"; sourceTree = "<group>"; };
 		7F2BF7882256E43B00C909E2 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = ../iCarousel/iCarousel/iCarousel.h; sourceTree = "<group>"; };
 		7F2BF7892256E43C00C909E2 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = ../iCarousel/iCarousel/iCarousel.m; sourceTree = "<group>"; };
@@ -115,11 +121,14 @@
 				7F73F716222D77DA00D19C03 /* Networking */,
 				7F73F704222D6F7F00D19C03 /* AppDelegate.swift */,
 				7F73F706222D6F7F00D19C03 /* ViewController.swift */,
+				7F1671A322932F18001EFB66 /* BookmarkCell.swift */,
+				7F1671A522932F66001EFB66 /* BookmarksTableViewController.swift */,
 				7F73F708222D6F7F00D19C03 /* Main.storyboard */,
 				7F73F70B222D6F8000D19C03 /* Assets.xcassets */,
 				7F73F70D222D6F8000D19C03 /* LaunchScreen.storyboard */,
 				7F73F710222D6F8000D19C03 /* Info.plist */,
 				7F023737224B22070054449E /* FilterCell.swift */,
+				7F1671A1229302C3001EFB66 /* BookmarkStore.swift */,
 			);
 			path = "Makeup Roulette";
 			sourceTree = "<group>";
@@ -311,15 +320,18 @@
 				7F95D39922332E4800CAE838 /* YouTube.swift in Sources */,
 				7F73F71E222D78CD00D19C03 /* URLParameterEncoder.swift in Sources */,
 				7F023738224B22070054449E /* FilterCell.swift in Sources */,
+				7F1671A622932F66001EFB66 /* BookmarksTableViewController.swift in Sources */,
 				7F95D38F2233276600CAE838 /* Router.swift in Sources */,
 				7F95D3892233271900CAE838 /* HTTPMethod.swift in Sources */,
 				7F95D393223327B600CAE838 /* NetworkManager.swift in Sources */,
 				7F7C2FBC2290DA0600C93FED /* BookmarkDBHelper.swift in Sources */,
 				7F95D387223326F600CAE838 /* EndPointType.swift in Sources */,
 				7F95D38B2233273500CAE838 /* HTTPTask.swift in Sources */,
+				7F1671A2229302C3001EFB66 /* BookmarkStore.swift in Sources */,
 				7F73F71C222D78A300D19C03 /* ParameterEncoding.swift in Sources */,
 				7F73F707222D6F7F00D19C03 /* ViewController.swift in Sources */,
 				7F95D396223327F300CAE838 /* YouTubeEndPoint.swift in Sources */,
+				7F1671A422932F18001EFB66 /* BookmarkCell.swift in Sources */,
 				7F2BF78A2256E43C00C909E2 /* iCarousel.m in Sources */,
 				7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */,
 				7F95D38D2233274E00CAE838 /* NetworkRouter.swift in Sources */,

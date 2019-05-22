@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Bookmark {
+class Bookmark: Codable {
     
     var videoId: String
     var title: String

@@ -11,20 +11,6 @@ import SQLite3
 
 struct BookmarkDBHelper {
     
-    
-    // Create SQLite Database File
-//    sqliteDatabaseURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-//    .appendingPathComponent("Bookmarks.sqlite")
-//
-//    if sqlite3_open(sqliteDatabaseURL?.path, &db) != SQLITE_OK {
-//    print("error opening database")
-//    }
-//
-//    if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS Bookmarks (id INTEGER PRIMARY KEY AUTOINCREMENT, videoId TEXT, title TEXT, thumbnail TEXT, channelTitle TEXT)", nil, nil, nil) != SQLITE_OK {
-//    let errmsg = String(cString: sqlite3_errmsg(db)!)
-//    print("error creating table: \(errmsg)")
-//    }
-    
     init() {
         let db = openConnection()
         createTable(db: db)
@@ -34,10 +20,10 @@ struct BookmarkDBHelper {
     let createBookmarksTableString = """
         CREATE TABLE IF NOT EXISTS Bookmarks (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            videoId TEXT,
-            title TEXT,
-            thumbnail TEXT,
-            channelTitle TEXT
+            videoId TEXT NOT NULL UNIQUE,
+            title TEXT NOT NULL,
+            thumbnail TEXT NOT NULL UNIQUE,
+            channelTitle TEXT NOT NULL
         );
         """
     
@@ -57,10 +43,15 @@ struct BookmarkDBHelper {
     }
     
     func closeConnection(db: OpaquePointer?) {
-        sqlite3_close(db)
+        let r = sqlite3_close(db)
+        if r == SQLITE_OK {
+            print("Successfully Closed Connection")
+        } else {
+            print("Error Attempting to Close Connection")
+        }
     }
     
-    func addBookmark(connection: OpaquePointer?,videoId: String, title: String, thumbnail: String, channelTitle: String) {
+    func addBookmark(connection: OpaquePointer?,videoId: NSString, title: NSString, thumbnail: NSString, channelTitle: NSString) {
         
         let insertStatementString = "INSERT INTO Bookmarks (videoId, title, thumbnail, channelTitle) VALUES (?, ?, ?, ?);"
         
@@ -69,10 +60,22 @@ struct BookmarkDBHelper {
         if sqlite3_prepare_v2(connection, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             
             // 1-4 here represents the position of the `?` inside insertStatementString
-            sqlite3_bind_text(insertStatement, 1, videoId, -1, nil)
-            sqlite3_bind_text(insertStatement, 2, title, -1, nil)
-            sqlite3_bind_text(insertStatement, 3, thumbnail, -1, nil)
-            sqlite3_bind_text(insertStatement, 4, channelTitle, -1, nil)
+            if sqlite3_bind_text(insertStatement, 1, videoId.utf8String, -1, nil) != SQLITE_OK {
+                print("Error binding video")
+                return
+            }
+            if sqlite3_bind_text(insertStatement, 2, title.utf8String, -1, nil) != SQLITE_OK {
+                print("Error binding title")
+                return
+            }
+            if sqlite3_bind_text(insertStatement, 3, thumbnail.utf8String, -1, nil) != SQLITE_OK {
+                print("Error binding thumbnail")
+                return
+            }
+            if sqlite3_bind_text(insertStatement, 4, channelTitle.utf8String, -1, nil) != SQLITE_OK {
+                print("Error binding channelTitle")
+                return
+            }
             
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Successfully Added Bookmark.")
@@ -80,11 +83,37 @@ struct BookmarkDBHelper {
                 print("Bookmark could not be added.")
             }
             
+            sqlite3_reset(insertStatement)
+            
         } else {
             print("INSERT statement could not be prepared.")
         }
         
         sqlite3_finalize(insertStatement)
+        
+    }
+    
+    func removeBookmark(connection: OpaquePointer?, videoId: String) {
+        
+        let removeStatementString = "DELETE FROM Bookmarks WHERE videoId = '\(videoId)';"
+        
+        var removeStatement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(connection, removeStatementString, -1, &removeStatement, nil) == SQLITE_OK {
+            
+            if sqlite3_step(removeStatement) == SQLITE_DONE {
+                print("Successfully Removed Bookmark.")
+            } else {
+                print("Error attempting to remove Bookmark.")
+            }
+            
+            sqlite3_reset(removeStatement)
+            
+        } else {
+            print("DELETE Statement could not be prepared")
+        }
+        
+        sqlite3_finalize(removeStatement)
         
     }
     
@@ -128,8 +157,17 @@ struct BookmarkDBHelper {
             let thumbnail = String(cString: sqlite3_column_text(queryStatement, 3))
             let channelTitle = String(cString: sqlite3_column_text(queryStatement, 4))
             
-            bookmarks.append(Bookmark(videoId: String(videoId), title: String(title), thumbnail: String(thumbnail), channelTitle: String(channelTitle)))
+            let bookmark = Bookmark(
+                videoId: String(videoId),
+                title: String(title),
+                thumbnail: String(thumbnail),
+                channelTitle: String(channelTitle)
+            )
+            
+            bookmarks.append(bookmark)
         }
+        
+        sqlite3_finalize(queryStatement)
         return bookmarks
         
     }

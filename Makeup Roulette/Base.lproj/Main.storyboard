@@ -137,9 +137,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="xEW-j7-xLC"/>
                                 </connections>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSp-v6-O6p">
-                                <rect key="frame" x="328" y="360" width="70" height="30"/>
-                                <state key="normal" title="Bookmark"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSp-v6-O6p">
+                                <rect key="frame" x="359" y="360" width="39" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TUd-Od-ZT1"/>
+                                    <constraint firstAttribute="width" constant="39" id="hb2-ik-1M6"/>
+                                </constraints>
+                                <state key="normal" image="whiteBookmark"/>
+                                <state key="disabled" image="whiteBookmark"/>
+                                <state key="selected" image="blackBookmark"/>
                                 <connections>
                                     <action selector="_bookmarkButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rch-Il-eXb"/>
                                 </connections>
@@ -150,6 +159,7 @@
                             <constraint firstItem="5aH-hp-KRF" firstAttribute="top" secondItem="xBn-Me-bkx" secondAttribute="top" constant="1" id="15N-sP-cT6"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2P6-DJ-jLJ"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="5aH-hp-KRF" secondAttribute="bottom" constant="20" id="2bC-g1-ieZ"/>
+                            <constraint firstItem="xBn-Me-bkx" firstAttribute="top" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="8" id="4eg-tJ-mls"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7p4-L6-kms"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cDu-6S-zmh" secondAttribute="trailing" id="7vl-fN-JaU"/>
                             <constraint firstItem="5aH-hp-KRF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="84v-ke-Qqa"/>
@@ -158,11 +168,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xBn-Me-bkx" secondAttribute="trailing" constant="16" id="LYZ-tf-y4P"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P1g-mT-Hrg"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="Uut-nx-YGH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PSp-v6-O6p" secondAttribute="trailing" constant="16" id="WIj-iM-OJ7"/>
+                            <constraint firstItem="PSp-v6-O6p" firstAttribute="top" secondItem="1Ou-PD-HeH" secondAttribute="bottom" constant="3" id="YAs-3L-Glh"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="atz-E5-ZxZ"/>
+                            <constraint firstItem="PSp-v6-O6p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="359" id="dYs-hc-Y1m"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" constant="-88.800000000000011" id="f31-74-kQ4"/>
-                            <constraint firstItem="PSp-v6-O6p" firstAttribute="trailing" secondItem="xBn-Me-bkx" secondAttribute="trailing" id="fl0-Xf-ydR"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="jyX-iI-ZTC"/>
-                            <constraint firstItem="xBn-Me-bkx" firstAttribute="top" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="8" symbolic="YES" id="m69-hV-VRL"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="qga-Kt-dYj"/>
                             <constraint firstItem="5aH-hp-KRF" firstAttribute="top" secondItem="1Ou-PD-HeH" secondAttribute="bottom" constant="42" id="rgm-W4-Wl8"/>
                             <constraint firstItem="xBn-Me-bkx" firstAttribute="leading" secondItem="5aH-hp-KRF" secondAttribute="trailing" constant="8" symbolic="YES" id="yWO-K2-pQ7"/>
@@ -171,9 +182,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Makeup Roulette" id="9RG-gM-awO">
-                        <barButtonItem key="leftBarButtonItem" title="Bookmarks" id="EHv-x7-5XJ">
+                        <barButtonItem key="rightBarButtonItem" title="Bookmarks" id="EHv-x7-5XJ">
                             <connections>
-                                <segue destination="6cb-Io-vDf" kind="show" id="shu-AM-Epo"/>
+                                <segue destination="6cb-Io-vDf" kind="show" identifier="showBookmarks" id="hDH-LA-n2N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -192,22 +203,61 @@
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="131.25"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Bookmarks-->
         <scene sceneID="OEY-P9-81f">
             <objects>
-                <tableViewController id="6cb-Io-vDf" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J0Q-u9-MyM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController title="Bookmarks" id="6cb-Io-vDf" customClass="BookmarksTableViewController" customModule="Makeup_Roulette" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="x0S-as-2vE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mIX-sW-0M2">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookmarkCell" rowHeight="90" id="mIX-sW-0M2" customClass="BookmarkCell" customModule="Makeup_Roulette" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mIX-sW-0M2" id="bvt-qa-v26">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mIX-sW-0M2" id="bvt-qa-v26">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackCircle" translatesAutoresizingMaskIntoConstraints="NO" id="l6V-8L-bZS">
+                                            <rect key="frame" x="7" y="0.0" width="85" height="85"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="85" id="KKx-4U-4RQ"/>
+                                                <constraint firstAttribute="width" constant="85" id="yFW-R0-0b3"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSp-fN-TPz" userLabel="Video Title">
+                                            <rect key="frame" x="100" y="20" width="44.5" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvF-lL-YOO" userLabel="Channel Title">
+                                            <rect key="frame" x="100" y="47.5" width="95" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="l6V-8L-bZS" firstAttribute="top" secondItem="bvt-qa-v26" secondAttribute="top" id="0nW-Sh-lAA"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NSp-fN-TPz" secondAttribute="trailing" constant="20" symbolic="YES" id="17n-ad-3Ta"/>
+                                        <constraint firstItem="KvF-lL-YOO" firstAttribute="leading" secondItem="l6V-8L-bZS" secondAttribute="trailing" constant="8" id="4gI-gI-T1e"/>
+                                        <constraint firstItem="KvF-lL-YOO" firstAttribute="top" secondItem="NSp-fN-TPz" secondAttribute="bottom" constant="-1.5" id="7ye-4K-ira"/>
+                                        <constraint firstItem="l6V-8L-bZS" firstAttribute="leading" secondItem="bvt-qa-v26" secondAttribute="leading" constant="7" id="IRY-5C-AFZ"/>
+                                        <constraint firstItem="NSp-fN-TPz" firstAttribute="leading" secondItem="l6V-8L-bZS" secondAttribute="trailing" constant="8" id="LxH-6q-T2e"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="KvF-lL-YOO" secondAttribute="bottom" constant="7" id="PaB-cz-vdL"/>
+                                        <constraint firstItem="NSp-fN-TPz" firstAttribute="leading" secondItem="l6V-8L-bZS" secondAttribute="trailing" constant="8" id="XGH-CK-qji"/>
+                                        <constraint firstAttribute="bottom" secondItem="l6V-8L-bZS" secondAttribute="bottom" id="hzQ-TW-D8o"/>
+                                        <constraint firstItem="NSp-fN-TPz" firstAttribute="top" secondItem="bvt-qa-v26" secondAttribute="topMargin" constant="9" id="lQb-Z8-Yn8"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="_bookmarkVideoChannelTitle" destination="KvF-lL-YOO" id="qaw-aW-Ihd"/>
+                                    <outlet property="_bookmarkVideoThumbnail" destination="l6V-8L-bZS" id="Q60-qr-OJ6"/>
+                                    <outlet property="_bookmarkVideoTitle" destination="NSp-fN-TPz" id="vOo-CE-Dhv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -216,12 +266,14 @@
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J0Q-u9-MyM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="131"/>
+            <point key="canvasLocation" x="960.86956521739137" y="130.58035714285714"/>
         </scene>
     </scenes>
     <resources>
+        <image name="blackBookmark" width="100" height="100"/>
+        <image name="blackCircle" width="1890" height="1890"/>
         <image name="cylinder" width="1000" height="1000"/>
+        <image name="whiteBookmark" width="100" height="100"/>
     </resources>
 </document>

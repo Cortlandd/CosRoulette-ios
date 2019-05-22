@@ -12,7 +12,6 @@
 		7F1671A2229302C3001EFB66 /* BookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A1229302C3001EFB66 /* BookmarkStore.swift */; };
 		7F1671A422932F18001EFB66 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A322932F18001EFB66 /* BookmarkCell.swift */; };
 		7F1671A622932F66001EFB66 /* BookmarksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A522932F66001EFB66 /* BookmarksTableViewController.swift */; };
-		7F2BF78A2256E43C00C909E2 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BF7892256E43C00C909E2 /* iCarousel.m */; };
 		7F2BF7902256F9DE00C909E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2BF78F2256F9DE00C909E2 /* QuartzCore.framework */; };
 		7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F704222D6F7F00D19C03 /* AppDelegate.swift */; };
 		7F73F707222D6F7F00D19C03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F706222D6F7F00D19C03 /* ViewController.swift */; };
@@ -33,6 +32,7 @@
 		7F95D396223327F300CAE838 /* YouTubeEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D395223327F300CAE838 /* YouTubeEndPoint.swift */; };
 		7F95D39922332E4800CAE838 /* YouTube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D39822332E4800CAE838 /* YouTube.swift */; };
 		7FBF07BD2236C38C00E14C34 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF07BC2236C38C00E14C34 /* NetworkLogger.swift */; };
+		7FE0080E2295DFF100907D71 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE0080D2295DFF100907D71 /* iCarousel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,6 @@
 		7F1671A322932F18001EFB66 /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
 		7F1671A522932F66001EFB66 /* BookmarksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTableViewController.swift; sourceTree = "<group>"; };
 		7F2BF7872256E43B00C909E2 /* Makeup Roulette-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Makeup Roulette-Bridging-Header.h"; sourceTree = "<group>"; };
-		7F2BF7882256E43B00C909E2 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCarousel.h; path = ../iCarousel/iCarousel/iCarousel.h; sourceTree = "<group>"; };
-		7F2BF7892256E43C00C909E2 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCarousel.m; path = ../iCarousel/iCarousel/iCarousel.m; sourceTree = "<group>"; };
 		7F2BF78F2256F9DE00C909E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7F73F701222D6F7E00D19C03 /* Makeup Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Makeup Roulette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F73F704222D6F7F00D19C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +64,8 @@
 		7F95D395223327F300CAE838 /* YouTubeEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeEndPoint.swift; sourceTree = "<group>"; };
 		7F95D39822332E4800CAE838 /* YouTube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTube.swift; sourceTree = "<group>"; };
 		7FBF07BC2236C38C00E14C34 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		7FE0080C2295DFF100907D71 /* iCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		7FE0080D2295DFF100907D71 /* iCarousel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		A819A5BB8714E15E986A5060 /* Pods-Makeup Roulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makeup Roulette.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makeup Roulette/Pods-Makeup Roulette.debug.xcconfig"; sourceTree = "<group>"; };
 		EB6B5FABB477994475243EAA /* Pods-Makeup Roulette.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makeup Roulette.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makeup Roulette/Pods-Makeup Roulette.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,8 +95,6 @@
 		7F73F6F8222D6F7E00D19C03 = {
 			isa = PBXGroup;
 			children = (
-				7F2BF7882256E43B00C909E2 /* iCarousel.h */,
-				7F2BF7892256E43C00C909E2 /* iCarousel.m */,
 				7F73F703222D6F7E00D19C03 /* Makeup Roulette */,
 				7F73F702222D6F7E00D19C03 /* Products */,
 				02766CEC274E64949E47CC6B /* Frameworks */,
@@ -116,6 +114,8 @@
 		7F73F703222D6F7E00D19C03 /* Makeup Roulette */ = {
 			isa = PBXGroup;
 			children = (
+				7FE0080C2295DFF100907D71 /* iCarousel.h */,
+				7FE0080D2295DFF100907D71 /* iCarousel.m */,
 				7F7C2FBB2290DA0600C93FED /* BookmarkDBHelper.swift */,
 				7F95D3972233281800CAE838 /* Model */,
 				7F73F716222D77DA00D19C03 /* Networking */,
@@ -330,9 +330,9 @@
 				7F1671A2229302C3001EFB66 /* BookmarkStore.swift in Sources */,
 				7F73F71C222D78A300D19C03 /* ParameterEncoding.swift in Sources */,
 				7F73F707222D6F7F00D19C03 /* ViewController.swift in Sources */,
+				7FE0080E2295DFF100907D71 /* iCarousel.m in Sources */,
 				7F95D396223327F300CAE838 /* YouTubeEndPoint.swift in Sources */,
 				7F1671A422932F18001EFB66 /* BookmarkCell.swift in Sources */,
-				7F2BF78A2256E43C00C909E2 /* iCarousel.m in Sources */,
 				7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */,
 				7F95D38D2233274E00CAE838 /* NetworkRouter.swift in Sources */,
 				7F7C2FBE2290FC5500C93FED /* Bookmark.swift in Sources */,

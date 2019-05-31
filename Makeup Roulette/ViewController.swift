@@ -24,7 +24,6 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     @IBOutlet weak var _carouselView:     iCarousel!
     @IBOutlet var      _playerView:       YoutubePlayerView!
     @IBOutlet var      _tableView:        UITableView!
-    @IBOutlet weak var _addFilterText:    UITextField!
     @IBOutlet weak var _cylinderImage:    UIImageView!
     @IBOutlet weak var _noFiltersText:    UILabel!
     @IBOutlet weak var _videoPlaceholderText: UITextView!
@@ -106,10 +105,6 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Dismiss Keyboard on touch outside
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
-        self.view.addGestureRecognizer(tapGesture)
-        
         _playerView.delegate = self
         
         // Placeholder text over player
@@ -131,10 +126,6 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         _refBookmarkButton.setImage(#imageLiteral(resourceName: "whiteBookmark"), for: .normal)
         _refBookmarkButton.setImage(#imageLiteral(resourceName: "blackBookmark"), for: .selected)
         
-        let bookmarkSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(swipe:)))
-        bookmarkSwipe.direction = UISwipeGestureRecognizer.Direction.left
-        self.view.addGestureRecognizer(bookmarkSwipe)
-        
         // Set carousel styling, etc.
         //_carouselView.backgroundColor = UIColor.red
         //_carouselView.clipsToBounds = true
@@ -142,38 +133,43 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     
     }
     
-    @objc func swipeAction(swipe: UISwipeGestureRecognizer) {
-        switch swipe.direction.rawValue {
-        case 2:
-            performSegue(withIdentifier: "showBookmarks", sender: self)
-        default:
-            break
-        }
-    }
-    
     /*
      * Add button to add filters
      */
     @IBAction func AddFilterButton(_ sender: Any) {
-        insertFilter()
-    }
-    
-    /*
-     * Function used to drop down Keyboard when touching outside in _addFilterText
-     */
-    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        _addFilterText.resignFirstResponder()
+        
+        // Alert Controller. Set title and message
+        let alertController = UIAlertController(title: "Add Filter", message: "Enter the name of the filter to add.", preferredStyle: .alert)
+        
+        // Create filter text field in alert
+        alertController.addTextField { (textField) in
+            textField.placeholder = "i.e. Black Women"
+        }
+        
+        // MARK: Implement validation to not save if text is blank
+        let confirmAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            let filter = alertController.textFields?[0].text
+            self.insertFilter(filterText: filter!)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     /*
      * Function used to append a filter to table view.
      */
-    func insertFilter() {
+    func insertFilter(filterText: String) {
         
-        if _addFilterText.text == "" {
+        if filterText.description == "" {
             print("Add Video Text Field is empty")
         } else {
-            filters.append(_addFilterText.text!)
+            filters.append(filterText.description)
             
             let indexPath = IndexPath(row: filters.count - 1, section: 0)
             
@@ -181,7 +177,6 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
             _tableView.insertRows(at: [indexPath], with: .automatic)
             _tableView.endUpdates()
             
-            _addFilterText.text = ""
             view.endEditing(true)
             
             // After inserting a new row, get the newly visible filters

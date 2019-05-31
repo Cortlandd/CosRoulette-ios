@@ -67,6 +67,10 @@ class BookmarksTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        bookmarkStore = BookmarkStore()
+        
+        bookmarks = bookmarkStore.allBookmarks
+        
         tableView.reloadData()
     }
 

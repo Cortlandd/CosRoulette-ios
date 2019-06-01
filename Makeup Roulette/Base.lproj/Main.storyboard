@@ -461,10 +461,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="XTU-GO-ErB" firstAttribute="leading" secondItem="1A6-wd-zwe" secondAttribute="leading" id="Cfg-Ih-KBt"/>
-                            <constraint firstItem="XTU-GO-ErB" firstAttribute="width" secondItem="1A6-wd-zwe" secondAttribute="width" id="Koj-XA-jo6"/>
-                            <constraint firstItem="XTU-GO-ErB" firstAttribute="height" secondItem="1A6-wd-zwe" secondAttribute="height" id="MRG-5Y-ZSz"/>
-                            <constraint firstItem="XTU-GO-ErB" firstAttribute="top" secondItem="vcb-Xv-0z0" secondAttribute="top" id="kKK-Ia-gVl"/>
+                            <constraint firstItem="XTU-GO-ErB" firstAttribute="width" secondItem="1A6-wd-zwe" secondAttribute="width" id="fg9-Pl-oGV"/>
+                            <constraint firstItem="XTU-GO-ErB" firstAttribute="height" secondItem="1A6-wd-zwe" secondAttribute="height" id="nEF-2p-Fdu"/>
+                            <constraint firstItem="XTU-GO-ErB" firstAttribute="centerX" secondItem="1A6-wd-zwe" secondAttribute="centerX" id="pln-lA-k4c"/>
+                            <constraint firstItem="XTU-GO-ErB" firstAttribute="centerY" secondItem="1A6-wd-zwe" secondAttribute="centerY" id="vh6-UL-5Iz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vcb-Xv-0z0"/>
                     </view>
@@ -477,7 +477,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <scene sceneID="RNY-S8-AES">
             <objects>
                 <tableViewController title="Help / FAQ TableView" id="NFf-xO-7FK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="NQM-L6-Df1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="NQM-L6-Df1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="681"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -488,7 +488,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GeO-vm-Kmx" id="yhM-TT-DSL">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNU-bv-L95">

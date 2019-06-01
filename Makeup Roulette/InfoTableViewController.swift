@@ -23,14 +23,16 @@ class InfoTableViewController: UITableViewController, MFMailComposeViewControlle
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // Click `Instagram`
-        if indexPath.row == 0 {
-            openInstagram()
-        }
-        
-        // Click `Send Email`
-        if indexPath.row == 1 {
-            openSendEmail()
+        if indexPath.section == 0 {
+            
+            switch(indexPath.row) {
+            case 0: // Instagram
+                openInstagram()
+            case 1: // Send Email
+                openSendEmail()
+            default:
+                break
+            }
         }
         
         

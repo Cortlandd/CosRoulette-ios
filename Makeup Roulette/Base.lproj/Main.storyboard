@@ -109,7 +109,7 @@
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="cDu-6S-zmh" customClass="iCarousel">
                                 <rect key="frame" x="0.0" y="663" width="414" height="150"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cylinder" translatesAutoresizingMaskIntoConstraints="NO" id="hmk-dI-ouW">
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cylinder" translatesAutoresizingMaskIntoConstraints="NO" id="hmk-dI-ouW">
                                         <rect key="frame" x="0.0" y="75" width="414" height="150"/>
                                     </imageView>
                                 </subviews>

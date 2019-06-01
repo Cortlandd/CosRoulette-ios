@@ -61,12 +61,12 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FGq-tF-xcl">
-                                <rect key="frame" x="0.0" y="340" width="414" height="263"/>
+                                <rect key="frame" x="0.0" y="334" width="414" height="269"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Filters Added" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4y0-Os-FHB" userLabel="No Filters">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="24"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -136,7 +136,7 @@
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="top" secondItem="FGq-tF-xcl" secondAttribute="bottom" constant="60" id="M6K-F1-RpT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PSp-v6-O6p" secondAttribute="trailing" constant="16" id="NoC-JA-Rhf"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="PRV-UT-Rp6"/>
-                            <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="12" id="SkV-gi-KhF"/>
+                            <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="6" id="SkV-gi-KhF"/>
                             <constraint firstItem="xBn-Me-bkx" firstAttribute="bottom" secondItem="PSp-v6-O6p" secondAttribute="bottom" id="Uu1-kE-ZgT"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VeW-Fx-xg6"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X3A-Te-Rb5"/>

@@ -32,6 +32,7 @@
 		7F95D396223327F300CAE838 /* YouTubeEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D395223327F300CAE838 /* YouTubeEndPoint.swift */; };
 		7F95D39922332E4800CAE838 /* YouTube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D39822332E4800CAE838 /* YouTube.swift */; };
 		7FBF07BD2236C38C00E14C34 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBF07BC2236C38C00E14C34 /* NetworkLogger.swift */; };
+		7FCB10D922A2019100CBAB03 /* InfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB10D822A2019100CBAB03 /* InfoTableViewController.swift */; };
 		7FE0080E2295DFF100907D71 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE0080D2295DFF100907D71 /* iCarousel.m */; };
 		7FE0080F2295E28300907D71 /* Makeup Roulette-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BF7872256E43B00C909E2 /* Makeup Roulette-Bridging-Header.h */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		7F95D395223327F300CAE838 /* YouTubeEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeEndPoint.swift; sourceTree = "<group>"; };
 		7F95D39822332E4800CAE838 /* YouTube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTube.swift; sourceTree = "<group>"; };
 		7FBF07BC2236C38C00E14C34 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		7FCB10D822A2019100CBAB03 /* InfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewController.swift; sourceTree = "<group>"; };
 		7FE0080C2295DFF100907D71 /* iCarousel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		7FE0080D2295DFF100907D71 /* iCarousel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		A819A5BB8714E15E986A5060 /* Pods-Makeup Roulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makeup Roulette.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makeup Roulette/Pods-Makeup Roulette.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				7F73F710222D6F8000D19C03 /* Info.plist */,
 				7F023737224B22070054449E /* FilterCell.swift */,
 				7F1671A1229302C3001EFB66 /* BookmarkStore.swift */,
+				7FCB10D822A2019100CBAB03 /* InfoTableViewController.swift */,
 			);
 			path = "Makeup Roulette";
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			files = (
 				7FE0080F2295E28300907D71 /* Makeup Roulette-Bridging-Header.h in Sources */,
 				7FBF07BD2236C38C00E14C34 /* NetworkLogger.swift in Sources */,
+				7FCB10D922A2019100CBAB03 /* InfoTableViewController.swift in Sources */,
 				7F73F720222D78E800D19C03 /* JSONParameterEncoder.swift in Sources */,
 				7F95D39922332E4800CAE838 /* YouTube.swift in Sources */,
 				7F73F71E222D78CD00D19C03 /* URLParameterEncoder.swift in Sources */,

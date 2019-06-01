@@ -271,13 +271,13 @@
         <!--More-->
         <scene sceneID="V9Q-Q4-UqX">
             <objects>
-                <tableViewController id="zsu-XA-4ax" sceneMemberID="viewController">
+                <tableViewController id="zsu-XA-4ax" customClass="InfoTableViewController" customModule="Makeup_Roulette" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="3d2-n8-Sww">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="681"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makeup Roulette 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WCD-ea-V75" userLabel="Version">
-                            <rect key="frame" x="0.0" y="504" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="444" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,33 +328,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SuggestionCell" rowHeight="60" id="I8P-i8-nVi">
-                                        <rect key="frame" x="0.0" y="148" width="414" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I8P-i8-nVi" id="p6R-Sq-1rs">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lightbulb-off" translatesAutoresizingMaskIntoConstraints="NO" id="NL0-cp-HUV">
-                                                    <rect key="frame" x="20" y="7" width="45" height="45"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Suggestion?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqH-fm-umU" userLabel="Send Email">
-                                                    <rect key="frame" x="73" y="19" width="95" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="About" id="H6I-13-cwo">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HelpFAQCell" rowHeight="60" id="fyc-9v-oWX">
-                                        <rect key="frame" x="0.0" y="236" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="176" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fyc-9v-oWX" id="RKn-OJ-tRi">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="60"/>
@@ -378,7 +357,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OpenSourceCell" rowHeight="60" id="2gs-iY-Riu">
-                                        <rect key="frame" x="0.0" y="296" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="236" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2gs-iY-Riu" id="Rsv-rF-hTH">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="60"/>
@@ -406,7 +385,7 @@
                             <tableViewSection headerTitle="Enjoy The App?" id="hY7-Mk-MNU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RateAppCell" rowHeight="60" id="aca-Am-XYR">
-                                        <rect key="frame" x="0.0" y="384" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="324" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aca-Am-XYR" id="Ynf-Wd-CwG">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="60"/>
@@ -423,7 +402,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DonateCell" rowHeight="60" id="LSF-Yh-oKU">
-                                        <rect key="frame" x="0.0" y="444" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="384" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LSF-Yh-oKU" id="Zwb-8d-cY7">
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="60"/>
@@ -583,7 +562,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         <image name="email" width="30" height="30"/>
         <image name="home" width="30" height="30"/>
         <image name="instagram-icon" width="299" height="299"/>
-        <image name="lightbulb-off" width="29" height="30"/>
         <image name="question" width="30" height="30"/>
         <image name="whiteBookmark" width="100" height="100"/>
     </resources>

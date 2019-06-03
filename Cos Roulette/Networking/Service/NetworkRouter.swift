@@ -1,11 +1,10 @@
 //
 //  NetworkRouter.swift
-//  Makeup Roulette
+//  Cos Roulette
 //
 //  Created by Cortland Walker on 3/8/19.
-//  Copyright © 2019 Fedha. All rights reserved.
+//  Copyright © 2019 Cortland Walker. All rights reserved.
 //
-
 import Foundation
 
 public typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()

@@ -11,13 +11,13 @@
 		7F1671A2229302C3001EFB66 /* BookmarkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A1229302C3001EFB66 /* BookmarkStore.swift */; };
 		7F1671A422932F18001EFB66 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A322932F18001EFB66 /* BookmarkCell.swift */; };
 		7F1671A622932F66001EFB66 /* BookmarksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1671A522932F66001EFB66 /* BookmarksTableViewController.swift */; };
-		7F1ACA3922A5B58B004D5272 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1ACA3822A5B58B004D5272 /* EndPointType.swift */; };
-		7F1ACA3D22A5B5DB004D5272 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1ACA3C22A5B5DB004D5272 /* HTTPMethod.swift */; };
-		7F1ACA3F22A5B5F7004D5272 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1ACA3E22A5B5F7004D5272 /* NetworkLogger.swift */; };
-		7F1ACA4122A5B620004D5272 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1ACA4022A5B620004D5272 /* Router.swift */; };
-		7F1ACA4322A5B66F004D5272 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1ACA4222A5B66F004D5272 /* NetworkRouter.swift */; };
-		7F1ACA4522A5B6AC004D5272 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1ACA4422A5B6AC004D5272 /* HTTPTask.swift */; };
 		7F2BF7902256F9DE00C909E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2BF78F2256F9DE00C909E2 /* QuartzCore.framework */; };
+		7F71451722A5C6510074C2F4 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71451122A5C6510074C2F4 /* HTTPTask.swift */; };
+		7F71451822A5C6510074C2F4 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71451222A5C6510074C2F4 /* HTTPMethod.swift */; };
+		7F71451922A5C6510074C2F4 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71451322A5C6510074C2F4 /* NetworkLogger.swift */; };
+		7F71451A22A5C6510074C2F4 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71451422A5C6510074C2F4 /* EndPointType.swift */; };
+		7F71451B22A5C6510074C2F4 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71451522A5C6510074C2F4 /* NetworkRouter.swift */; };
+		7F71451C22A5C6510074C2F4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71451622A5C6510074C2F4 /* Router.swift */; };
 		7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F704222D6F7F00D19C03 /* AppDelegate.swift */; };
 		7F73F707222D6F7F00D19C03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F706222D6F7F00D19C03 /* ViewController.swift */; };
 		7F73F70A222D6F7F00D19C03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F73F708222D6F7F00D19C03 /* Main.storyboard */; };
@@ -44,14 +44,14 @@
 		7F1671A1229302C3001EFB66 /* BookmarkStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkStore.swift; sourceTree = "<group>"; };
 		7F1671A322932F18001EFB66 /* BookmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkCell.swift; sourceTree = "<group>"; };
 		7F1671A522932F66001EFB66 /* BookmarksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksTableViewController.swift; sourceTree = "<group>"; };
-		7F1ACA3822A5B58B004D5272 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = SOURCE_ROOT; };
-		7F1ACA3C22A5B5DB004D5272 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = SOURCE_ROOT; };
-		7F1ACA3E22A5B5F7004D5272 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = SOURCE_ROOT; };
-		7F1ACA4022A5B620004D5272 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = SOURCE_ROOT; };
-		7F1ACA4222A5B66F004D5272 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = SOURCE_ROOT; };
-		7F1ACA4422A5B6AC004D5272 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = SOURCE_ROOT; };
 		7F2BF7872256E43B00C909E2 /* Makeup Roulette-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Makeup Roulette-Bridging-Header.h"; sourceTree = "<group>"; };
 		7F2BF78F2256F9DE00C909E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7F71451122A5C6510074C2F4 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPTask.swift; path = "Cos Roulette/Networking/Service/HTTPTask.swift"; sourceTree = SOURCE_ROOT; };
+		7F71451222A5C6510074C2F4 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = "Cos Roulette/Networking/Service/HTTPMethod.swift"; sourceTree = SOURCE_ROOT; };
+		7F71451322A5C6510074C2F4 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkLogger.swift; path = "Cos Roulette/Networking/Service/NetworkLogger.swift"; sourceTree = SOURCE_ROOT; };
+		7F71451422A5C6510074C2F4 /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndPointType.swift; path = "Cos Roulette/Networking/Service/EndPointType.swift"; sourceTree = SOURCE_ROOT; };
+		7F71451522A5C6510074C2F4 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkRouter.swift; path = "Cos Roulette/Networking/Service/NetworkRouter.swift"; sourceTree = SOURCE_ROOT; };
+		7F71451622A5C6510074C2F4 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = "Cos Roulette/Networking/Service/Router.swift"; sourceTree = SOURCE_ROOT; };
 		7F73F701222D6F7E00D19C03 /* Cos Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cos Roulette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F73F704222D6F7F00D19C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F73F706222D6F7F00D19C03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -170,12 +170,12 @@
 		7F95D3852233265D00CAE838 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				7F1ACA3822A5B58B004D5272 /* EndPointType.swift */,
-				7F1ACA3C22A5B5DB004D5272 /* HTTPMethod.swift */,
-				7F1ACA3E22A5B5F7004D5272 /* NetworkLogger.swift */,
-				7F1ACA4022A5B620004D5272 /* Router.swift */,
-				7F1ACA4222A5B66F004D5272 /* NetworkRouter.swift */,
-				7F1ACA4422A5B6AC004D5272 /* HTTPTask.swift */,
+				7F71451422A5C6510074C2F4 /* EndPointType.swift */,
+				7F71451222A5C6510074C2F4 /* HTTPMethod.swift */,
+				7F71451122A5C6510074C2F4 /* HTTPTask.swift */,
+				7F71451322A5C6510074C2F4 /* NetworkLogger.swift */,
+				7F71451522A5C6510074C2F4 /* NetworkRouter.swift */,
+				7F71451622A5C6510074C2F4 /* Router.swift */,
 			);
 			name = Service;
 			path = "/Volumes/Untitled/Development/ios/MakeupRoulette-ios/Makeup Roulette/Networking/Service";
@@ -322,9 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F71451922A5C6510074C2F4 /* NetworkLogger.swift in Sources */,
+				7F71451B22A5C6510074C2F4 /* NetworkRouter.swift in Sources */,
+				7F71451822A5C6510074C2F4 /* HTTPMethod.swift in Sources */,
 				7FE0080F2295E28300907D71 /* Makeup Roulette-Bridging-Header.h in Sources */,
 				7FCB10D922A2019100CBAB03 /* InfoTableViewController.swift in Sources */,
-				7F1ACA4322A5B66F004D5272 /* NetworkRouter.swift in Sources */,
 				7F73F720222D78E800D19C03 /* JSONParameterEncoder.swift in Sources */,
 				7F95D39922332E4800CAE838 /* YouTube.swift in Sources */,
 				7F73F71E222D78CD00D19C03 /* URLParameterEncoder.swift in Sources */,
@@ -334,17 +336,15 @@
 				7F7C2FBC2290DA0600C93FED /* BookmarkDBHelper.swift in Sources */,
 				7F1671A2229302C3001EFB66 /* BookmarkStore.swift in Sources */,
 				7F73F71C222D78A300D19C03 /* ParameterEncoding.swift in Sources */,
-				7F1ACA4522A5B6AC004D5272 /* HTTPTask.swift in Sources */,
 				7F73F707222D6F7F00D19C03 /* ViewController.swift in Sources */,
+				7F71451722A5C6510074C2F4 /* HTTPTask.swift in Sources */,
+				7F71451C22A5C6510074C2F4 /* Router.swift in Sources */,
 				7FE0080E2295DFF100907D71 /* iCarousel.m in Sources */,
 				7F95D396223327F300CAE838 /* YouTubeEndPoint.swift in Sources */,
-				7F1ACA4122A5B620004D5272 /* Router.swift in Sources */,
 				7F1671A422932F18001EFB66 /* BookmarkCell.swift in Sources */,
 				7F73F705222D6F7F00D19C03 /* AppDelegate.swift in Sources */,
-				7F1ACA3D22A5B5DB004D5272 /* HTTPMethod.swift in Sources */,
-				7F1ACA3F22A5B5F7004D5272 /* NetworkLogger.swift in Sources */,
-				7F1ACA3922A5B58B004D5272 /* EndPointType.swift in Sources */,
 				7F7C2FBE2290FC5500C93FED /* Bookmark.swift in Sources */,
+				7F71451A22A5C6510074C2F4 /* EndPointType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

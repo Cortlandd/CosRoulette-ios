@@ -1,11 +1,10 @@
 //
 //  NetworkLogger.swift
-//  Makeup Roulette
+//  Cos Roulette
 //
 //  Created by Cortland Walker on 3/11/19.
-//  Copyright © 2019 Fedha. All rights reserved.
+//  Copyright © 2019 Cortland Walker. All rights reserved.
 //
-
 import Foundation
 
 class NetworkLogger {

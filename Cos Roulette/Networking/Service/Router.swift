@@ -1,15 +1,14 @@
 //
 //  Router.swift
-//  Makeup Roulette
+//  Cos Roulette
 //
 //  Created by Cortland Walker on 3/8/19.
-//  Copyright © 2019 Fedha. All rights reserved.
+//  Copyright © 2019 Cortland Walker. All rights reserved.
 //
-
 import Foundation
 
 class Router<EndPoint: EndPointType>: NetworkRouter {
-
+    
     // This task is essentially what will do all the work as far as requests
     private var task: URLSessionTask?
     private let session = URLSession(configuration: .default)
@@ -80,7 +79,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                                              request: &request
                 )
             }
-
+            
             return request
         } catch {
             throw error

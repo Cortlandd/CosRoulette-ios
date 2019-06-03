@@ -4,22 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Cos Roulette.xcscheme</key>
+		<key>Cos Roulette.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
-		<key>YoutubePlayerView.xcscheme</key>
+		<key>Makeup Roulette.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict/>
 </dict>
 </plist>

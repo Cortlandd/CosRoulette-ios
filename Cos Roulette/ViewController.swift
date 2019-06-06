@@ -75,15 +75,17 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         let alertController = UIAlertController(title: "Select Category", message: "\n\n\n\n\n\n", preferredStyle: .alert)
         alertController.isModalInPopover = true
         
-        let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: 250, height: 140))
+        pickerView = UIPickerView(frame: CGRect(x: 5, y: 20, width: 250, height: 140))
         
-        alertController.view.addSubview(pickerFrame)
-        pickerFrame.dataSource = self
-        pickerFrame.delegate = self
+        alertController.view.addSubview(pickerView)
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.selectRow(globalDefaults.getSelectedCategory(), inComponent: 0, animated: true)
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
             self._cosCategoryRef.setTitle(self.cosCategoryValue, for: .normal)
+            // MARK: Find out if this is removing them just because a user clicks ok
             self.youtubeArray.removeAll()
             self.searchMap.removeAll()
         }))
@@ -137,6 +139,9 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     // A variable to handle Filter UserDefaults
     var filterDefaults: FilterDefaults!
     
+    // A variable to handle Global UserDefaults
+    var globalDefaults: GlobalDefaults!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -151,9 +156,17 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         // Initialize BookmarkStore
         bookmarkStore = BookmarkStore()
         
+        // Initialize UserDefaults for filters
         filterDefaults = FilterDefaults()
         
         filters.append(contentsOf: filterDefaults.getFilters())
+        
+        // Initialize Global, App Specific UserDefaults
+        globalDefaults = GlobalDefaults()
+        
+        // Previous category row selected
+        let defaultRow = globalDefaults.getSelectedCategory()
+        _cosCategoryRef.setTitle(cosCategories[defaultRow], for: .normal)
         
         // Initialize Bookmarks Database Helper
         dbHelper = BookmarkDBHelper()
@@ -529,6 +542,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         cosCategoryValue = cosCategories[row]
+        globalDefaults.setSelectedCategory(selected: row)
     }
     
     

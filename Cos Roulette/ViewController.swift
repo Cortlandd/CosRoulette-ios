@@ -94,6 +94,36 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         
     }
     
+    /*
+     * Add button to add filters
+     */
+    @IBAction func AddFilterButton(_ sender: Any) {
+        
+        // Alert Controller. Set title and message
+        let alertController = UIAlertController(title: "Add Filter", message: "Enter the name of the filter to add.", preferredStyle: .alert)
+        
+        // Create filter text field in alert
+        alertController.addTextField { (textField) in
+            textField.placeholder = "i.e. Black Women, Fenty, Alissa Ashley"
+        }
+        
+        // MARK: Implement validation to not save if text is blank
+        let confirmAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            
+            let filterText = alertController.textFields?[0].text
+            self.insertFilter(filterText: filterText!)
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
     
     // Array of string videoId's
     var youtubeArray = [String]()
@@ -185,35 +215,7 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     
     }
     
-    /*
-     * Add button to add filters
-     */
-    @IBAction func AddFilterButton(_ sender: Any) {
-        
-        // Alert Controller. Set title and message
-        let alertController = UIAlertController(title: "Add Filter", message: "Enter the name of the filter to add.", preferredStyle: .alert)
-        
-        // Create filter text field in alert
-        alertController.addTextField { (textField) in
-            textField.placeholder = "i.e. Black Women, Fenty, Alissa Ashley"
-        }
-        
-        // MARK: Implement validation to not save if text is blank
-        let confirmAction = UIAlertAction(title: "Save", style: .default) { (_) in
-            
-            let filterText = alertController.textFields?[0].text
-            self.insertFilter(filterText: filterText!)
-        
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
+    
     
     /*
      * Function used to append a filter to table view.

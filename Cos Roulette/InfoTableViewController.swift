@@ -34,12 +34,10 @@ class InfoTableViewController: UITableViewController, MFMailComposeViewControlle
                 break
             }
         }
-        
-        
     }
     
     func openInstagram() {
-        let screenName =  "makeup_roulette" // CHANGE THIS
+        let screenName =  "cosroulette"
         
         let appURL = URL(string:  "instagram://user?username=\(screenName)")
         let webURL = URL(string:  "https://instagram.com/\(screenName)")
@@ -62,8 +60,8 @@ class InfoTableViewController: UITableViewController, MFMailComposeViewControlle
     
     func openSendEmail() {
         
-        let email = "cortland12@icloud.com"
-        let subject = "Support"
+        let email = "admin@cosroulette.com"
+        let subject = "Support - iOS"
         let bodyText = ""
         
         if MFMailComposeViewController.canSendMail() {

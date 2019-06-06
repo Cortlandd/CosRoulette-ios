@@ -28,6 +28,7 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     @IBOutlet weak var _noFiltersText:    UILabel!
     @IBOutlet weak var _videoPlaceholderText: UITextView!
     @IBOutlet weak var _refBookmarkButton: UIButton!
+    @IBOutlet weak var _cosCategoryRef: UIButton!
     
     @IBAction func _bookmarkButton(_ sender: Any) {
         
@@ -69,8 +70,38 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         }
     }
     
+    @IBAction func _cosCategoryButton(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Select Category", message: "\n\n\n\n\n\n", preferredStyle: .alert)
+        alertController.isModalInPopover = true
+        
+        let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: 250, height: 140))
+        
+        alertController.view.addSubview(pickerFrame)
+        pickerFrame.dataSource = self
+        pickerFrame.delegate = self
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (UIAlertAction) in
+            self._cosCategoryRef.setTitle(self.cosCategoryValue, for: .normal)
+            self.youtubeArray.removeAll()
+            self.searchMap.removeAll()
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
     // Array of string videoId's
     var youtubeArray = [String]()
+    
+    // Array of Categories for filter
+    var cosCategories = ["Makeup", "Hair", "Skin", "Nails"]
+    var cosCategoryValue = String() // Category picker value
+    
+    // Cos Category Picker View
+    var pickerView = UIPickerView()
     
     // A Dictionary of youtube search results
     var searchMap = [Dictionary<String, Any>]()
@@ -88,8 +119,9 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     var allFiltersText = [String]() {
         // If a new row is inserted or deleted delete the youtube array to start a new search
         willSet {
-            print("Removed everything from youtube array because filters changed.")
+            print("Removed everything from youtube array and search map")
             self.youtubeArray.removeAll()
+            self.searchMap.removeAll()
         }
     }
     
@@ -101,6 +133,9 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     
     // A variable to handle the NetworkManager
     var networkManager: NetworkManager!
+    
+    // A variable to handle Filter UserDefaults
+    var filterDefaults: FilterDefaults!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +150,10 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         
         // Initialize BookmarkStore
         bookmarkStore = BookmarkStore()
+        
+        filterDefaults = FilterDefaults()
+        
+        filters.append(contentsOf: filterDefaults.getFilters())
         
         // Initialize Bookmarks Database Helper
         dbHelper = BookmarkDBHelper()
@@ -143,13 +182,15 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         
         // Create filter text field in alert
         alertController.addTextField { (textField) in
-            textField.placeholder = "i.e. Black Women"
+            textField.placeholder = "i.e. Black Women, Fenty, Alissa Ashley"
         }
         
         // MARK: Implement validation to not save if text is blank
         let confirmAction = UIAlertAction(title: "Save", style: .default) { (_) in
-            let filter = alertController.textFields?[0].text
-            self.insertFilter(filterText: filter!)
+            
+            let filterText = alertController.textFields?[0].text
+            self.insertFilter(filterText: filterText!)
+        
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
@@ -169,13 +210,16 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         if filterText.description == "" {
             print("Add Video Text Field is empty")
         } else {
-            filters.append(filterText.description)
             
-            let indexPath = IndexPath(row: filters.count - 1, section: 0)
+            filterDefaults.addFilter(filter: filterText.description)
             
-            _tableView.beginUpdates()
-            _tableView.insertRows(at: [indexPath], with: .automatic)
-            _tableView.endUpdates()
+            filters.removeAll()
+            
+            filters.append(contentsOf: filterDefaults.getFilters())
+
+            let indexPath = IndexPath(row: filters.count, section: 0)
+            
+            _tableView.reloadData()
             
             view.endEditing(true)
             
@@ -284,15 +328,19 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
         
         self._refBookmarkButton.isHidden = true
         
+        allFiltersText = getAllTableViewRowsText()
+        
+        let baseCategory = self._cosCategoryRef.titleLabel!.text
         allFiltersStringText = allFiltersText.joined(separator: " ")
         
         var randomVideo: String = ""
         
         var search_params = Parameters()
+        
         var newMap = Parameters()
         
         search_params = [
-            "q": "makeup tutorials \(allFiltersStringText)",
+            "q": "\(baseCategory!) \(allFiltersStringText)",
             "part": "id,snippet",
             "key": API_KEY,
             "safeSearch": "none",
@@ -417,11 +465,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
+            
+            filterDefaults.removeFilter(index: indexPath.row)
+            
             filters.remove(at: indexPath.row)
             
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
+            
+            tableView.reloadData()
         }
         // After deleting a row, get the newly visible filters
         allFiltersText = getAllTableViewRowsText()
@@ -457,5 +510,26 @@ extension ViewController: YoutubePlayerViewDelegate {
             print("Video")
         }
     }
+    
+}
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return cosCategories.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return cosCategories[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        cosCategoryValue = cosCategories[row]
+    }
+    
     
 }

@@ -28,6 +28,7 @@
 		7F73F720222D78E800D19C03 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73F71F222D78E800D19C03 /* JSONParameterEncoder.swift */; };
 		7F7C2FBC2290DA0600C93FED /* BookmarkDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C2FBB2290DA0600C93FED /* BookmarkDBHelper.swift */; };
 		7F7C2FBE2290FC5500C93FED /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C2FBD2290FC5500C93FED /* Bookmark.swift */; };
+		7F90023922A88796001464C3 /* FilterDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F90023822A88796001464C3 /* FilterDefaults.swift */; };
 		7F95D393223327B600CAE838 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D392223327B600CAE838 /* NetworkManager.swift */; };
 		7F95D396223327F300CAE838 /* YouTubeEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D395223327F300CAE838 /* YouTubeEndPoint.swift */; };
 		7F95D39922332E4800CAE838 /* YouTube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95D39822332E4800CAE838 /* YouTube.swift */; };
@@ -64,6 +65,7 @@
 		7F73F71F222D78E800D19C03 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		7F7C2FBB2290DA0600C93FED /* BookmarkDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDBHelper.swift; sourceTree = "<group>"; };
 		7F7C2FBD2290FC5500C93FED /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		7F90023822A88796001464C3 /* FilterDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDefaults.swift; sourceTree = "<group>"; };
 		7F95D392223327B600CAE838 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7F95D395223327F300CAE838 /* YouTubeEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeEndPoint.swift; sourceTree = "<group>"; };
 		7F95D39822332E4800CAE838 /* YouTube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTube.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				7F023737224B22070054449E /* FilterCell.swift */,
 				7F1671A1229302C3001EFB66 /* BookmarkStore.swift */,
 				7FCB10D822A2019100CBAB03 /* InfoTableViewController.swift */,
+				7F90023822A88796001464C3 /* FilterDefaults.swift */,
 			);
 			path = "Cos Roulette";
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				7FCB10D922A2019100CBAB03 /* InfoTableViewController.swift in Sources */,
 				7F73F720222D78E800D19C03 /* JSONParameterEncoder.swift in Sources */,
 				7F95D39922332E4800CAE838 /* YouTube.swift in Sources */,
+				7F90023922A88796001464C3 /* FilterDefaults.swift in Sources */,
 				7F73F71E222D78CD00D19C03 /* URLParameterEncoder.swift in Sources */,
 				7F023738224B22070054449E /* FilterCell.swift in Sources */,
 				7F1671A622932F66001EFB66 /* BookmarksTableViewController.swift in Sources */,

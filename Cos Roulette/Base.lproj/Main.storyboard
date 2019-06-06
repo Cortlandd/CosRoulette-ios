@@ -47,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Me-bkx">
-                                <rect key="frame" x="159.5" y="292" width="95" height="36"/>
+                                <rect key="frame" x="20" y="295" width="95" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="95" id="SU5-wp-LEp"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="hxy-CG-YhK"/>
@@ -127,6 +127,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="xEW-j7-xLC"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aia-az-byZ">
+                                <rect key="frame" x="173" y="295" width="70" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" staticText="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Makeup"/>
+                                <connections>
+                                    <action selector="_cosCategoryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Ps-Um-st1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -137,11 +149,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PSp-v6-O6p" secondAttribute="trailing" constant="16" id="NoC-JA-Rhf"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="PRV-UT-Rp6"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="6" id="SkV-gi-KhF"/>
-                            <constraint firstItem="xBn-Me-bkx" firstAttribute="bottom" secondItem="PSp-v6-O6p" secondAttribute="bottom" id="Uu1-kE-ZgT"/>
+                            <constraint firstItem="xBn-Me-bkx" firstAttribute="bottom" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="3" id="Uu1-kE-ZgT"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VeW-Fx-xg6"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X3A-Te-Rb5"/>
+                            <constraint firstItem="xBn-Me-bkx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YKh-TS-cEq"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="atz-E5-ZxZ"/>
-                            <constraint firstItem="xBn-Me-bkx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dUU-2L-p8c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Ou-PD-HeH" secondAttribute="trailing" id="jum-J5-BHY"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="qga-Kt-dYj"/>
                             <constraint firstItem="PSp-v6-O6p" firstAttribute="top" secondItem="1Ou-PD-HeH" secondAttribute="bottom" constant="10" id="tFe-8j-XQd"/>
@@ -153,6 +165,7 @@
                     <navigationItem key="navigationItem" title="Makeup Roulette" id="QOV-0X-RrX"/>
                     <connections>
                         <outlet property="_carouselView" destination="cDu-6S-zmh" id="E54-HF-mXx"/>
+                        <outlet property="_cosCategoryRef" destination="Aia-az-byZ" id="DY2-ag-Uj6"/>
                         <outlet property="_cylinderImage" destination="hmk-dI-ouW" id="9X7-Nu-Fv2"/>
                         <outlet property="_noFiltersText" destination="4y0-Os-FHB" id="1rY-zs-zzw"/>
                         <outlet property="_playerView" destination="1Ou-PD-HeH" id="Csu-xM-ZCS"/>
@@ -163,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889" y="-74"/>
+            <point key="canvasLocation" x="1888.4057971014495" y="-74.330357142857139"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="OEY-P9-81f">

@@ -34,7 +34,8 @@ struct BookmarkDBHelper {
         let sqliteDatabaseURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Bookmarks.sqlite")
         
         if sqlite3_open(sqliteDatabaseURL.path, &db) == SQLITE_OK {
-            print("Successfully opened connection to Database at \(sqliteDatabaseURL)")
+            //print("Successfully opened connection to Database at \(sqliteDatabaseURL)")
+            print("Successfully opened connection to Database")
             return db
         } else {
             print("Unable to open database.")

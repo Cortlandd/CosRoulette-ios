@@ -128,7 +128,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aia-az-byZ">
-                                <rect key="frame" x="143" y="295" width="130" height="36"/>
+                                <rect key="frame" x="142" y="295" width="130" height="36"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" staticText="YES"/>
                                 </accessibility>
@@ -141,25 +141,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Aia-az-byZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xBn-Me-bkx" secondAttribute="trailing" constant="8" symbolic="YES" id="229-Oh-3jB"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2P6-DJ-jLJ"/>
+                            <constraint firstItem="Aia-az-byZ" firstAttribute="top" secondItem="1Ou-PD-HeH" secondAttribute="bottom" constant="7" id="2o7-ER-GBr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cDu-6S-zmh" secondAttribute="trailing" id="7vl-fN-JaU"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fy9-Az-T8x"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="top" secondItem="FGq-tF-xcl" secondAttribute="bottom" constant="60" id="M6K-F1-RpT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PSp-v6-O6p" secondAttribute="trailing" constant="16" id="NoC-JA-Rhf"/>
+                            <constraint firstItem="Aia-az-byZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Os6-Rd-VN3"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="PRV-UT-Rp6"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="top" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="6" id="SkV-gi-KhF"/>
                             <constraint firstItem="xBn-Me-bkx" firstAttribute="bottom" secondItem="PSp-v6-O6p" secondAttribute="bottom" constant="3" id="Uu1-kE-ZgT"/>
                             <constraint firstItem="FGq-tF-xcl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VeW-Fx-xg6"/>
                             <constraint firstItem="1Ou-PD-HeH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X3A-Te-Rb5"/>
                             <constraint firstItem="xBn-Me-bkx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YKh-TS-cEq"/>
-                            <constraint firstItem="Aia-az-byZ" firstAttribute="top" secondItem="xBn-Me-bkx" secondAttribute="top" id="YcC-ki-K2K"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="atz-E5-ZxZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Ou-PD-HeH" secondAttribute="trailing" id="jum-J5-BHY"/>
                             <constraint firstItem="cDu-6S-zmh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="qga-Kt-dYj"/>
                             <constraint firstItem="PSp-v6-O6p" firstAttribute="top" secondItem="1Ou-PD-HeH" secondAttribute="bottom" constant="10" id="tFe-8j-XQd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FGq-tF-xcl" secondAttribute="trailing" id="wwk-jg-bbZ"/>
-                            <constraint firstItem="PSp-v6-O6p" firstAttribute="leading" secondItem="Aia-az-byZ" secondAttribute="trailing" constant="86" id="zbR-XG-TQe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -107,6 +107,8 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
             textField.placeholder = "i.e. Black Women, Fenty, Alissa Ashley"
         }
         
+        alertController.message = "Filters allow for filtering of Selected Content (Hair, Makeup, etc). You can filter by your favorite content creator, your race, favorite brand, etc."
+        
         // MARK: Implement validation to not save if text is blank
         let confirmAction = UIAlertAction(title: "Save", style: .default) { (_) in
             
@@ -335,8 +337,11 @@ class ViewController: UIViewController, iCarouselDelegate, iCarouselDataSource {
     }
     
     func carouselDidEndDecelerating(_ carousel: iCarousel) {
-        
-        searchVideo()
+        if _cosCategoryRef.titleLabel?.text == "Select Content" {
+            return
+        } else {
+            searchVideo()
+        }
     }
     
     func searchVideo() {
@@ -535,17 +540,16 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return cosCategories.count
+        return cosCategories.count + 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return cosCategories[row]
+        return row == 0 ? "Select Content" : cosCategories[row - 1]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        cosCategoryValue = cosCategories[row]
+        cosCategoryValue = row == 0 ? "Select Content" : cosCategories[row - 1]
         globalDefaults.setSelectedCategory(selected: row)
     }
-    
     
 }
